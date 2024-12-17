@@ -1,4 +1,7 @@
 import ArrayBar from "./components/arrayBar"
+import Header from "./components/header"
+import "./index.css"
+
 function App() {
 
 
@@ -7,6 +10,7 @@ function App() {
     <div>
       <h1>Sort Algorithm Visualizer</h1>
       <ArrayBar />
+      <Header />
     </div>
     <div>
     </div>

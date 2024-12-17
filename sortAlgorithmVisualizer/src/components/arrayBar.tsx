@@ -6,4 +6,4 @@ function arrayBar(){
     )
 }
 
-export  default arrayBar;
+export default arrayBar;
