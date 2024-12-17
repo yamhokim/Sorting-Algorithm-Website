@@ -1,9 +1,10 @@
+import "../index.css";
 function header() {
-	return (
-		<div>
-			This is a header
-		</div>
-	)
+  return (
+    <div className="title">
+      <p>This is a header</p>
+    </div>
+  );
 }
 
-export default header
+export default header;

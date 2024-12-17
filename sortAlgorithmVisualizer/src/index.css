@@ -72,3 +72,10 @@ body, html {
 	justify-content: center; /* Center content horizontally */
 	align-items: center; /* Center content vertically */ 
   }
+
+  .testSidebar {
+	width: 20%; /* Adjust the percentage as needed */
+	background-color: green;
+	display: flex;
+	flex-direction: column;
+  }

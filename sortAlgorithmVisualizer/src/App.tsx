@@ -1,26 +1,22 @@
 import "./index.css";
+import SideBar from "./components/sideBar";
+import Header from "./components/header";
+import ArrayBar from "./components/arrayBar";
+import TextBox from "./components/textBox";
+import Sliders from "./components/sliders";
 
 function App() {
   return (
     <>
       <div className="container">
-        <div className="sidebar">
-          <div className="button-container">
-            <button>Generate New Array</button>
-            <button>Bubble Sort</button>
-            <button>Selection Sort</button>
-            <button>Insertion Sort</button>
-            <button>Quick Sort</button>
-            <button>Merge Sort</button>
-          </div>
-        </div>
+        <SideBar />
         <div className="main-content">
-          <div className="title"></div>
+          <Header />
           <div className="array-container">
-            <div className="array-bar"></div>
+            <ArrayBar />
           </div>
-          <div className="textbox"></div>
-          <div className="sliders"></div>
+          <TextBox />
+          <Sliders />
         </div>
       </div>
     </>
