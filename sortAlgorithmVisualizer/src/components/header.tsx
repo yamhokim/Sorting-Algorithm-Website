@@ -2,7 +2,7 @@ import "../index.css";
 function header() {
   return (
     <div className="title">
-      <p>This is a header</p>
+      <p className="underline">This is a header</p>
     </div>
   );
 }
