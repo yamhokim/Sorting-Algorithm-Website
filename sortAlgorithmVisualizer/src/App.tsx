@@ -12,7 +12,7 @@ function App() {
         <SideBar />
         <div className="main-content">
           <Header />
-          <div className="array-container">
+          <div className="array-container bg-blue-900 shadow-inner">
             <ArrayBar />
           </div>
           <TextBox />

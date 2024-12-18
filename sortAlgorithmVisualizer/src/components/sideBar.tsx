@@ -30,8 +30,6 @@ function SideBar() {
   return (
     <div className="sidebar">
       <div className="sidebar-content py-20 px-6 grid grid-cols-2 gap-5">
-        //map function that maps through an array of numbers and returns a
-        button for each number
         {[1, 2, 3, 4, 5, 6].map((num, index) => (
           <button
             key={index}
@@ -40,7 +38,6 @@ function SideBar() {
             onClick={() => handleClick(index)}
           >
             S{num}
-            //button text
           </button>
         ))}
       </div>
