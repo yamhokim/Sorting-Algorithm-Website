@@ -10,14 +10,14 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 type ArrayBarProps = {
-  numElements?: number; // Make numElements optional
+  amountValue: number;
 };
 
-function arrayBar({ numElements = 20 }: ArrayBarProps) {
+function arrayBar({ amountValue }: ArrayBarProps) {
   //create an array of random numbers
-  console.log(`numElements is: ${numElements}`);
+  console.log(`numElements is: ${amountValue}`);
   const numarray = shuffleArray(
-    Array.from({ length: numElements }, (_, index) => index + 1)
+    Array.from({ length: amountValue }, (_, index) => index + 1)
   );
 
   for (let i = 0; i < numarray.length; ++i) {
