@@ -15,7 +15,7 @@ function App() {
           <div className="array-container bg-blue-900 shadow-inner">
             <ArrayBar />
           </div>
-          <TextBox />
+          <TextBox text="Sahel has a fat booty" />
           <Sliders />
         </div>
       </div>
