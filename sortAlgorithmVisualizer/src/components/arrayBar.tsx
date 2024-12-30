@@ -16,10 +16,12 @@ type ArrayBarProps = {
 function arrayBar({ numElements = 20 }: ArrayBarProps) {
   //create an array of random numbers
   console.log(`numElements is: ${numElements}`);
-  const numarray = shuffleArray(Array.from({ length: numElements }, (_, index) => index + 1));
+  const numarray = shuffleArray(
+    Array.from({ length: numElements }, (_, index) => index + 1)
+  );
 
   for (let i = 0; i < numarray.length; ++i) {
-    console.log(numarray[i])
+    console.log(numarray[i]);
   }
 
   return (

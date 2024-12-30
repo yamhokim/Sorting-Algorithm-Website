@@ -21,10 +21,10 @@ function sliders() {
             id="default-range"
             type="range"
             value={amountValue}
-            min="4"
+            min="0"
             max="20"
             step="1"
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursos-pointer dark:bg-gray-700"
+            className="w-full h-1  bg-gray-200 rounded-lg appearance-none cursos-pointer dark:bg-gray-700 "
             onChange={handleAmountChange}
           ></input>
         </div>
