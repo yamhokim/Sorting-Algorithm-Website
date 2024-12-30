@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../index.css";
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -19,10 +20,21 @@ function arrayBar({ amountValue }: ArrayBarProps) {
   const numarray = shuffleArray(
     Array.from({ length: amountValue }, (_, index) => index + 1)
   );
-
   for (let i = 0; i < numarray.length; ++i) {
     console.log(numarray[i]);
   }
+
+  //Unfinished Code
+  const [swapping, setSwapping] = useState<boolean>(false);
+
+  const animateSwap = (i: number, j: number) => {
+    setSwapping(true);
+    setTimeout(() => {
+      const newArray = [...numarray];
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    });
+  };
+  //End of Unfinished Code
 
   return (
     <div className="array-bar flex items-end justify-center h-full">
