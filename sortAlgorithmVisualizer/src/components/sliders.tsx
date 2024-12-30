@@ -1,9 +1,35 @@
 import "../index.css";
+import { useState } from "react";
 function sliders() {
+  const [amountValue, setAmountValue] = useState<number>(0);
+  //Increment Amount of Array Bars
+  const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAmountValue(Number(event.target.value));
+  };
+
   return (
     <div className="sliders">
-      <div className="bg-black h-10 w-40 flex  absolute left-1/2"></div>
-      <div className="bg-black h-10 w-40 flex  absolute right-1/2"></div>
+      <div className="flex justify-center space-x-80">
+        <div className="bg-slate-500 h-10 w-40">
+          <label
+            htmlFor="default-range"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+          >
+            Amount: {amountValue}
+          </label>
+          <input
+            id="default-range"
+            type="range"
+            value={amountValue}
+            min="4"
+            max="20"
+            step="1"
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursos-pointer dark:bg-gray-700"
+            onChange={handleAmountChange}
+          ></input>
+        </div>
+        <div className="bg-slate-500 h-10 w-40"></div>
+      </div>
     </div>
   );
 }
