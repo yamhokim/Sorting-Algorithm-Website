@@ -1,5 +1,16 @@
 import "../index.css";
-function textBox() {
-  return <div className="textbox">Text Box</div>;
+
+interface TextBoxProps {
+  text: string;
+  className?: string;
 }
-export default textBox;
+
+const TextBox: React.FC<TextBoxProps> = ({text}) => {
+  return (
+    <div className="textbox">
+      {text}
+    </div>
+  );
+};
+
+export default TextBox;
