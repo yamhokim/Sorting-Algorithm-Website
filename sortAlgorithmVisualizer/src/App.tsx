@@ -4,7 +4,10 @@ import Header from "./components/header";
 import ArrayBar from "./components/arrayBar";
 import TextBox from "./components/textBox";
 import Sliders from "./components/sliders";
+import Home from "./pages";
+import SortPage from "./pages/sortPage";
 import { useState } from "react";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 
 function App() {
   const [amountValue, setAmountValue] = useState<number>(0);
