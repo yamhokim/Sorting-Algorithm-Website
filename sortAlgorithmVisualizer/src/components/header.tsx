@@ -1,10 +1,15 @@
 import "../index.css";
-function header() {
+
+type HeaderProp = {
+  title: string;
+}
+
+function Header({title}: HeaderProp) {
   return (
     <div className="title">
-      <p className="underline">Yoonho has a Fat Booty</p>
+      {title}
     </div>
   );
 }
 
-export default header;
+export default Header;

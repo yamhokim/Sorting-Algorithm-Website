@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../index.css";
 
 const SortingButton = ({ label, onClick, isSelected }) => {
@@ -16,21 +17,23 @@ const SortingButton = ({ label, onClick, isSelected }) => {
   };
 
 const SortingButtonGroup = ({selectedButton, setSelectedButton}) => {
+    const navigate = useNavigate();
 
-    const handleClick = (buttonLabel) => {
+    const handleClick = (buttonLabel: string, route: string) => {
         setSelectedButton(buttonLabel);
+        navigate(`/${route}`);
     }
 
     return (
-        <div className="sidebar-content py-20 px-6 grid grid-cols-2 gap-5">
-            <SortingButton label="Selection Sort" onClick={() => handleClick("Selection Sort")} isSelected={selectedButton === "Selection Sort"}/>
-            <SortingButton label="Bubble Sort" onClick={() => handleClick("Bubble Sort")} isSelected={selectedButton === "Bubble Sort"}/>
-            <SortingButton label="Insertion Sort" onClick={() => handleClick("Insertion Sort")} isSelected={selectedButton === "Insertion Sort"}/>
-            <SortingButton label="Merge Sort" onClick={() => handleClick("Merge Sort")} isSelected={selectedButton === "Merge Sort"}/>
-            <SortingButton label="Quick Sort" onClick={() => handleClick("Quick Sort")} isSelected={selectedButton === "Quick Sort"}/>
-            <SortingButton label="Heap Sort" onClick={() => handleClick("Heap Sort")} isSelected={selectedButton === "Heap Sort"}/>
-        </div>
-    )
+      <div className="sidebar-content py-20 px-6 grid grid-cols-2 gap-5">
+          <SortingButton label="Selection Sort" onClick={() => handleClick("Selection Sort", "selection-sort")} isSelected={selectedButton === "Selection Sort"}/>
+          <SortingButton label="Bubble Sort" onClick={() => handleClick("Bubble Sort", "bubble-sort")} isSelected={selectedButton === "Bubble Sort"}/>
+          <SortingButton label="Insertion Sort" onClick={() => handleClick("Insertion Sort", "insertion-sort")} isSelected={selectedButton === "Insertion Sort"}/>
+          <SortingButton label="Merge Sort" onClick={() => handleClick("Merge Sort", "merge-sort")} isSelected={selectedButton === "Merge Sort"}/>
+          <SortingButton label="Quick Sort" onClick={() => handleClick("Quick Sort", "quick-sort")} isSelected={selectedButton === "Quick Sort"}/>
+          <SortingButton label="Heap Sort" onClick={() => handleClick("Heap Sort", "heap-sort")} isSelected={selectedButton === "Heap Sort"}/>
+      </div>
+  )
 }
 
 export default SortingButtonGroup;
