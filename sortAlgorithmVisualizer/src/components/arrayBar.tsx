@@ -21,14 +21,11 @@ function arrayBar({ amountValue }: ArrayBarProps) {
 
   useEffect(() => {
     // Create the initial array based on the amountValue
-    const initial_array = Array.from(
-      { length: amountValue },
-      (_, index) => index + 1
-    );
-    setNumArray(initial_array);
+    const initialArray = Array.from({ length: amountValue }, (_, index) => index + 1);
+    setNumArray(initialArray);
 
     const timer = setTimeout(() => {
-      const shuffledArray = shuffleArray([...initial_array]); // Create a shuffled copy of the array
+      const shuffledArray = shuffleArray([...initialArray]); // Create a shuffled copy of the array
       setNumArray(shuffledArray); // Update the state with the shuffled array
     }, 3000); // Shuffle after 3 seconds
 

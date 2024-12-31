@@ -8,11 +8,12 @@ import { useState } from "react";
 
 function App() {
   const [amountValue, setAmountValue] = useState<number>(0);
+  const [selectedButton, setSelectedButton] = useState(null);
   
   return (
     <>
       <div className="container">
-        <SideBar />
+        <SideBar selectedButton={selectedButton} setSelectedButton={setSelectedButton}/>
         <div className="main-content">
           <Header />
           <div className="array-container bg-blue-900 shadow-inner">
