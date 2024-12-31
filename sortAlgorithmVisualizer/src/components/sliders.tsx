@@ -21,7 +21,7 @@ function sliders({ amountValue, setAmountValue }: SlidersProps) {
   return (
     <div className="sliders">
       <div className="flex justify-center space-x-80">
-        <div className="bg-slate-500 h-12 w-40  rounded-md">
+        <div className="bg-slate-500 h-12 w-40  rounded-md ">
           <label
             htmlFor="default-range"
             className="block text-sm font-medium text-gray-900 dark:text-black"
