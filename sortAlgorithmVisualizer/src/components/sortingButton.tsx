@@ -15,8 +15,7 @@ const SortingButton = ({ label, onClick, isSelected }) => {
     );
   };
 
-const SortingButtonGroup = () => {
-    const [selectedButton, setSelectedButton] = useState(null);
+const SortingButtonGroup = ({selectedButton, setSelectedButton}) => {
 
     const handleClick = (buttonLabel) => {
         setSelectedButton(buttonLabel);

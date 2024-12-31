@@ -8,7 +8,7 @@ import SortingButtonGroup from "./sortingButton";
 // we need to change the naming and index of the buttons to each algorithm
 
 // btw once your done reading my comments below and stuff delete them afterwards, I just put theme there to explain what this it.
-function SideBar() {
+function SideBar({selectedButton, setSelectedButton}) {
   // useState to keep track of which button is clicked
   //This is called a Hook by the way in react
   //useState is a hook that lets you add React state to function components
@@ -18,7 +18,7 @@ function SideBar() {
 
   return (
     <div className="sidebar">
-      <SortingButtonGroup />
+      <SortingButtonGroup selectedButton={selectedButton} setSelectedButton={setSelectedButton}/>
     </div>
   );
 }
