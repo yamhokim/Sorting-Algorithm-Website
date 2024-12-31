@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <SideBar selectedButton={selectedButton} setSelectedButton={setSelectedButton}/>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/bubble-sort" element={<SortPage name="Bubble Sort" />} />
           <Route path="/insertion-sort" element={<SortPage name="Insertion Sort" />} />
           <Route path="/selection-sort" element={<SortPage name="Selection Sort" />} />
