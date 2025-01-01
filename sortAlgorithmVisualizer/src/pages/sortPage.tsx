@@ -20,7 +20,7 @@ const SortPage = ({name}: SortPageProp) => {
           <div className="array-container bg-blue-900 shadow-inner">
             <ArrayBar amountValue={amountValue} />
           </div>
-          <TextBox text="Sahel has a fat booty" />
+          <TextBox text={`This is the code implementation for ${name}`} />
           <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
         </div>
       </div>
