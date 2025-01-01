@@ -1,29 +1,28 @@
 import "./index.css";
 import SideBar from "./components/sideBar";
-import Header from "./components/header";
-import ArrayBar from "./components/arrayBar";
-import TextBox from "./components/textBox";
-import Sliders from "./components/sliders";
+import Home from "./pages";
+import SortPage from "./pages/sortPage";
 import { useState } from "react";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 
 function App() {
-  const [amountValue, setAmountValue] = useState<number>(0);
   const [selectedButton, setSelectedButton] = useState(null);
   
   return (
-    <>
-      <div className="container">
+    <div className="container">
+      <BrowserRouter>
         <SideBar selectedButton={selectedButton} setSelectedButton={setSelectedButton}/>
-        <div className="main-content">
-          <Header />
-          <div className="array-container bg-blue-900 shadow-inner">
-            <ArrayBar amountValue={amountValue} />
-          </div>
-          <TextBox text="Sahel has a fat booty" />
-          <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
-        </div>
-      </div>
-    </>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/bubble-sort" element={<SortPage key="bubble-sort" name="Bubble Sort" />} />
+          <Route path="/insertion-sort" element={<SortPage key="insertion-sort" name="Insertion Sort" />} />
+          <Route path="/selection-sort" element={<SortPage key="selection-sort" name="Selection Sort" />} />
+          <Route path="/merge-sort" element={<SortPage key="merge-sort" name="Merge Sort" />} />
+          <Route path="/quick-sort" element={<SortPage key="quick-sort" name="Quick Sort" />} />
+          <Route path="/heap-sort" element={<SortPage key="heap-sort" name="Heap Sort" />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
