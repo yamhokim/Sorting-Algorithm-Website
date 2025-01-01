@@ -3,10 +3,10 @@ import SideBar from "./components/sideBar";
 import Home from "./pages";
 import SortPage from "./pages/sortPage";
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [selectedButton, setSelectedButton] = useState(null);
-  const [speedValue, setSpeedValue] = useState<number | number>(1);
 
   return (
     <div className="container">
@@ -46,5 +46,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
