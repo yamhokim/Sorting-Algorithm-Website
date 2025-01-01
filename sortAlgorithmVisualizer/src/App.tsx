@@ -14,12 +14,12 @@ function App() {
         <SideBar selectedButton={selectedButton} setSelectedButton={setSelectedButton}/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/bubble-sort" element={<SortPage name="Bubble Sort" />} />
-          <Route path="/insertion-sort" element={<SortPage name="Insertion Sort" />} />
-          <Route path="/selection-sort" element={<SortPage name="Selection Sort" />} />
-          <Route path="/merge-sort" element={<SortPage name="Merge Sort" />} />
-          <Route path="/quick-sort" element={<SortPage name="Quick Sort" />} />
-          <Route path="/heap-sort" element={<SortPage name="Heap Sort" />} />
+          <Route path="/bubble-sort" element={<SortPage key="bubble-sort" name="Bubble Sort" />} />
+          <Route path="/insertion-sort" element={<SortPage key="insertion-sort" name="Insertion Sort" />} />
+          <Route path="/selection-sort" element={<SortPage key="selection-sort" name="Selection Sort" />} />
+          <Route path="/merge-sort" element={<SortPage key="merge-sort" name="Merge Sort" />} />
+          <Route path="/quick-sort" element={<SortPage key="quick-sort" name="Quick Sort" />} />
+          <Route path="/heap-sort" element={<SortPage key="heap-sort" name="Heap Sort" />} />
         </Routes>
       </BrowserRouter>
     </div>
