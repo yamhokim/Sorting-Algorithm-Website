@@ -4,6 +4,8 @@ import { useState } from "react";
 type SlidersProps = {
   amountValue: number;
   setAmountValue: (num: number) => void;
+  speedValue: number;
+  setSpeedValue: (num: number) => void;
 };
 
 function sliders({ amountValue, setAmountValue }: SlidersProps) {
@@ -12,7 +14,7 @@ function sliders({ amountValue, setAmountValue }: SlidersProps) {
     setAmountValue(Number(event.target.value));
   };
 
-  const [speedValue, setSpeedValue] = useState<number | number>(0);
+  const [speedValue, setSpeedValue] = useState<number | number>(1);
 
   const handleSpeedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSpeedValue(Number(event.target.value));
@@ -50,8 +52,8 @@ function sliders({ amountValue, setAmountValue }: SlidersProps) {
             id="default-range"
             type="range"
             value={speedValue}
-            min="0"
-            max="20"
+            min="1"
+            max="6"
             step="1"
             className="w-10/12 h-2  bg-gray-400 rounded-lg appearance-none cursos-pointer dark:bg-gray-70 mb-6"
             onChange={handleSpeedChange}
