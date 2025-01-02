@@ -11,6 +11,7 @@ type SortPageProp = {
 
 const SortPage = ({name}: SortPageProp) => {
     const [amountValue, setAmountValue] = useState<number>(0);
+    const [speedValue, setSpeedValue] = useState<number | number>(1);
 
     return (
     <>
@@ -18,10 +19,10 @@ const SortPage = ({name}: SortPageProp) => {
         <div className="main-content">
           <Header title={name}/>
           <div className="array-container bg-blue-900 shadow-inner">
-            <ArrayBar amountValue={amountValue} />
+            <ArrayBar name={name} amountValue={amountValue} speedValue={speedValue}/>
           </div>
           <TextBox text={`This is the code implementation for ${name}`} />
-          <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
+          <Sliders amountValue={amountValue} setAmountValue={setAmountValue} speedValue={speedValue} setSpeedValue={setSpeedValue}/>
         </div>
       </div>
     </>

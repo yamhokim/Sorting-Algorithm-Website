@@ -10,18 +10,19 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 type ArrayBarProps = {
+  name: string;
   amountValue: number;
   speedValue: number;
 };
 
-function ArrayBar({ amountValue, speedValue }: ArrayBarProps) {
+function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
   const [numarray, setNumArray] = useState<number[]>([]);
   const [activeIndices, setActiveIndices] = useState<number[]>([]);
   const [swappedIndices, setSwappedIndices] = useState<number[]>([]);
 
   // Example speed factor (you could pass this in as a prop or from a context)
   // 1 means normal speed, 3 means 3x faster, etc.
-  const speedFactor = 2; // or 2 or 3, etc.
+  const speedFactor = speedValue; // or 2 or 3, etc.
 
   // We’ll use a base duration for each animation step (in ms).
   // At speedFactor=1, stepDuration = 500ms. At speedFactor=2, stepDuration = 250ms, etc.
@@ -156,7 +157,7 @@ function ArrayBar({ amountValue, speedValue }: ArrayBarProps) {
           className="px-4 py-2 bg-green-500 text-white rounded"
           onClick={bubbleSort}
         >
-          Bubble Sort
+          {name}
         </button>
       </div>
     </>

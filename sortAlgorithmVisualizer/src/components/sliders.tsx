@@ -1,5 +1,4 @@
 import "../index.css";
-import { useState } from "react";
 
 type SlidersProps = {
   amountValue: number;
@@ -8,13 +7,11 @@ type SlidersProps = {
   setSpeedValue: (num: number) => void;
 };
 
-function sliders({ amountValue, setAmountValue }: SlidersProps) {
+function sliders({ amountValue, setAmountValue, speedValue, setSpeedValue }: SlidersProps) {
   //Increment Amount of Array Bars
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAmountValue(Number(event.target.value));
   };
-
-  const [speedValue, setSpeedValue] = useState<number | number>(1);
 
   const handleSpeedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSpeedValue(Number(event.target.value));
