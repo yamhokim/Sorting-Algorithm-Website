@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { SortingAlgorithm } from "../types/algorithm";
 import "../index.css";
 
@@ -17,7 +17,12 @@ type ArrayBarProps = {
   sortingAlgorithm: SortingAlgorithm;
 };
 
-function ArrayBar({ name, amountValue, speedValue, sortingAlgorithm }: ArrayBarProps) {
+function ArrayBar({
+  name,
+  amountValue,
+  speedValue,
+  sortingAlgorithm,
+}: ArrayBarProps) {
   const [numarray, setNumArray] = useState<number[]>([]);
   const [activeIndices, setActiveIndices] = useState<number[]>([]);
   const [swappedIndices, setSwappedIndices] = useState<number[]>([]);
@@ -107,7 +112,15 @@ function ArrayBar({ name, amountValue, speedValue, sortingAlgorithm }: ArrayBarP
         </button> */}
         <button
           className="px-4 py-2 bg-green-500 text-white rounded"
-          onClick={() => sortingAlgorithm(numarray, setNumArray, setActiveIndices, setSwappedIndices, stepDuration)}
+          onClick={() =>
+            sortingAlgorithm(
+              numarray,
+              setNumArray,
+              setActiveIndices,
+              setSwappedIndices,
+              stepDuration
+            )
+          }
         >
           {name}
         </button>

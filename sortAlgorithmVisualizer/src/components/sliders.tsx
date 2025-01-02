@@ -7,7 +7,12 @@ type SlidersProps = {
   setSpeedValue: (num: number) => void;
 };
 
-function sliders({ amountValue, setAmountValue, speedValue, setSpeedValue }: SlidersProps) {
+function sliders({
+  amountValue,
+  setAmountValue,
+  speedValue,
+  setSpeedValue,
+}: SlidersProps) {
   //Increment Amount of Array Bars
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAmountValue(Number(event.target.value));

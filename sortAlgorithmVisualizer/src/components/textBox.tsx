@@ -5,12 +5,8 @@ interface TextBoxProps {
   className?: string;
 }
 
-const TextBox: React.FC<TextBoxProps> = ({text}) => {
-  return (
-    <div className="textbox">
-      {text}
-    </div>
-  );
+const TextBox: React.FC<TextBoxProps> = ({ text }) => {
+  return <div className="textbox">{text}</div>;
 };
 
 export default TextBox;
