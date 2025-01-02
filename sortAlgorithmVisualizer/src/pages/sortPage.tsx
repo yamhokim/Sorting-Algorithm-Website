@@ -6,13 +6,13 @@ import TextBox from "../components/textBox";
 import { useState } from "react";
 
 type SortPageProp = {
-    name: string;
+  name: string;
 };
 
 const SortPage = ({ name }: SortPageProp) => {
-    const [amountValue, setAmountValue] = useState<number>(0);
+  const [amountValue, setAmountValue] = useState<number>(0);
 
-    return (
+  return (
     <>
       <div className="container">
         <div className="main-content">
