@@ -18,6 +18,7 @@ export function handleSortingAlgorithm(name: string, ...args: any[]) {
       break;
     case "Insertion Sort":
       console.log("Insertion Sort");
+      insertionSort(args[0], args[1], args[2], args[3], args[4]);
       break;
     case "Merge Sort":
       console.log("Merge Sort");
@@ -96,14 +97,14 @@ function selectionSort(
   setCurrentIndex: React.Dispatch<React.SetStateAction<number[]>>
 ): void {
   const animations: {
-    type: "currentIndex" | "swap" | "minimum" | "active";
+    type: "current" | "swap" | "minimum" | "active";
     indices: [number, number];
   }[] = [];
   const arr = [...numarray];
 
   for (let i = 0; i < arr.length; i++) {
     let minIndex = i;
-    animations.push({ type: "currentIndex", indices: [i, -1] });
+    animations.push({ type: "current", indices: [i, -1] });
     animations.push({ type: "minimum", indices: [minIndex, -1] });
 
     for (let j = i + 1; j < arr.length; j++) {
@@ -128,7 +129,7 @@ function selectionSort(
         const activeIndex = [animation.indices[0]];
         setActiveIndices(activeIndex);
         setSwappedIndices([]);
-      } else if (animation.type === "currentIndex") {
+      } else if (animation.type === "current") {
         const currIndex = [animation.indices[0]];
         setCurrentIndex(currIndex);
         setSwappedIndices([]);
@@ -173,6 +174,45 @@ function insertionSort(
     indices: [number, number];
   }[] = [];
   const arr = [...numarray];
+
+  for (let i = 1; i < arr.length; i++) {
+    const currElement = arr[i];
+    let j = i - 1;
+    animations.push({ type: "compare", indices: [i, -1] });
+    while (j >= 0 && arr[j] > currElement) {
+      animations.push({ type: "swap", indices: [j + 1, j] });
+      arr[j + 1] = arr[j];
+      j = j - 1;
+    }
+    arr[j + 1] = currElement;
+  }
+
+  animations.forEach((animation, i) => {
+    setTimeout(() => {
+      if (animation.type === "compare") {
+        // Highlight these bars in green
+        const activeIndex = [animation.indices[0]];
+        setActiveIndices(activeIndex);
+        setSwappedIndices([]);
+      } else if (animation.type === "swap") {
+        // Perform the swap in state, highlight in red
+        setNumArray((prevArray) => {
+          const newArr = [...prevArray];
+          const [indexA, indexB] = animation.indices;
+          [newArr[indexA], newArr[indexB]] = [newArr[indexB], newArr[indexA]];
+          return newArr;
+        });
+        setActiveIndices([]);
+        setSwappedIndices(animation.indices);
+      }
+    }, i * stepDuration);
+  });
+
+  // After all animations, clear highlights
+  setTimeout(() => {
+    setActiveIndices([]);
+    setSwappedIndices([]);
+  }, animations.length * stepDuration + stepDuration);
 }
 
 function mergeSort(
