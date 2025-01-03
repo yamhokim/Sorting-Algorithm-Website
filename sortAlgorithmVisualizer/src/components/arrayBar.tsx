@@ -50,33 +50,6 @@ function ArrayBar({
     return () => clearTimeout(timer);
   }, [amountValue]);
 
-  /**
-   * Simple manual swap to demonstrate that speedFactor also affects
-   * how long the highlighting remains visible, etc.
-   */
-  const handleSwap = (indexA: number, indexB: number) => {
-    setActiveIndices([indexA, indexB]);
-    setSwappedIndices([]);
-
-    setTimeout(() => {
-      setNumArray((prevArray) => {
-        const newArray = [...prevArray];
-        [newArray[indexA], newArray[indexB]] = [
-          newArray[indexB],
-          newArray[indexA],
-        ];
-        setSwappedIndices([indexA, indexB]);
-        return newArray;
-      });
-    }, stepDuration);
-
-    // Clear highlights after a bit
-    setTimeout(() => {
-      setActiveIndices([]);
-      setSwappedIndices([]);
-    }, stepDuration * 2);
-  };
-
   return (
     <>
       <div className="array-bar flex items-end justify-center h-full">
@@ -104,12 +77,6 @@ function ArrayBar({
       </div>
 
       <div className="mt-4 flex gap-2">
-        {/* <button
-          className="px-4 py-2 bg-blue-500 text-white rounded"
-          onClick={() => handleSwap(0, 1)}
-        >
-          Swap Index 0 & 1
-        </button> */}
         <button
           className="px-4 py-2 bg-green-500 text-white rounded"
           onClick={() =>
