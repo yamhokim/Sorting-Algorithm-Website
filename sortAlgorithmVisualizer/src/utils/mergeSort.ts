@@ -10,4 +10,10 @@ export function mergeSort(
     indices: [number, number];
   }[] = [];
   const arr = [...numarray];
+
+  const midpoint = arr.length / 2;
+
+  if (arr.length < 2) {
+    return arr;
+  }
 }
