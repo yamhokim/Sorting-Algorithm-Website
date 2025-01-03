@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { SortingAlgorithm } from "../types/algorithm";
+import { handleSortingAlgorithm } from "../utils/sortingAlgorithms";
 import "../index.css";
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -14,18 +14,14 @@ type ArrayBarProps = {
   name: string;
   amountValue: number;
   speedValue: number;
-  sortingAlgorithm: SortingAlgorithm;
 };
 
-function ArrayBar({
-  name,
-  amountValue,
-  speedValue,
-  sortingAlgorithm,
-}: ArrayBarProps) {
+function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
   const [numarray, setNumArray] = useState<number[]>([]);
   const [activeIndices, setActiveIndices] = useState<number[]>([]);
   const [swappedIndices, setSwappedIndices] = useState<number[]>([]);
+  const [minimumIndex, setMinimumIndex] = useState<number[]>([]);
+  const [currentIndex, setCurrentIndex] = useState<number[]>([]);
 
   // Example speed factor (you could pass this in as a prop or from a context)
   // 1 means normal speed, 3 means 3x faster, etc.
@@ -62,6 +58,12 @@ function ArrayBar({
           if (swappedIndices.includes(index)) {
             barColor = "bg-red-500";
           }
+          if (minimumIndex.includes(index)) {
+            barColor = "bg-purple-500";
+          }
+          if (currentIndex.includes(index)) {
+            barColor = "bg-orange-500";
+          }
 
           return (
             <div
@@ -80,12 +82,15 @@ function ArrayBar({
         <button
           className="px-4 py-2 bg-green-500 text-white rounded"
           onClick={() =>
-            sortingAlgorithm(
+            handleSortingAlgorithm(
+              name,
               numarray,
               setNumArray,
               setActiveIndices,
               setSwappedIndices,
-              stepDuration
+              stepDuration,
+              setMinimumIndex,
+              setCurrentIndex
             )
           }
         >

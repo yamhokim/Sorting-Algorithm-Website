@@ -3,15 +3,13 @@ import Header from "../components/header";
 import ArrayBar from "../components/arrayBar";
 import Sliders from "../components/sliders";
 import TextBox from "../components/textBox";
-import { SortingAlgorithm } from "../types/algorithm";
 import { useState } from "react";
 
 type SortPageProp = {
   name: string;
-  sortingAlgorithm: SortingAlgorithm;
 };
 
-const SortPage = ({ name, sortingAlgorithm }: SortPageProp) => {
+const SortPage = ({ name }: SortPageProp) => {
   const [amountValue, setAmountValue] = useState<number>(0);
   const [speedValue, setSpeedValue] = useState<number | number>(1);
 
@@ -25,7 +23,6 @@ const SortPage = ({ name, sortingAlgorithm }: SortPageProp) => {
               name={name}
               amountValue={amountValue}
               speedValue={speedValue}
-              sortingAlgorithm={sortingAlgorithm}
             />
           </div>
           <TextBox text={`This is the code implementation for ${name}`} />
