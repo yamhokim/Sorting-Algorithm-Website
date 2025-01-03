@@ -10,7 +10,7 @@ type SortPageProp = {
 };
 
 const SortPage = ({ name }: SortPageProp) => {
-  const [amountValue, setAmountValue] = useState<number>(0);
+  const [amountValue, setAmountValue] = useState<number>(10);
   const [speedValue, setSpeedValue] = useState<number | number>(1);
 
   return (
