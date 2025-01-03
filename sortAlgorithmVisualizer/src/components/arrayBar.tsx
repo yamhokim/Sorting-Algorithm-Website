@@ -22,7 +22,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
   const [swappedIndices, setSwappedIndices] = useState<number[]>([]);
   const [minimumIndex, setMinimumIndex] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number[]>([]);
-
+  const [barWidth, setBarWidth] = useState<number>(10);
   // Example speed factor (you could pass this in as a prop or from a context)
   // 1 means normal speed, 3 means 3x faster, etc.
   const speedFactor = speedValue; // or 2 or 3, etc.
@@ -31,6 +31,13 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
   // At speedFactor=1, stepDuration = 500ms. At speedFactor=2, stepDuration = 250ms, etc.
   const baseStepDuration = 500;
   const stepDuration = baseStepDuration / speedFactor;
+
+  // Going to update bar width as the amountValue goes up
+  useEffect(() => {
+    // This 600 is currently our container width, we will change this once we figure out our actual container width
+    const newBarWidth = Math.max(2, 600 / amountValue);
+    setBarWidth(newBarWidth);
+  }, [amountValue]);
 
   useEffect(() => {
     // Create the initial array [1..amountValue]
@@ -71,7 +78,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
               className={`border-2 border-black transition-all duration-300 ${barColor}`}
               style={{
                 height: `${heightnum * 8}px`,
-                width: "1rem",
+                width: `${barWidth}px`,
               }}
             ></div>
           );

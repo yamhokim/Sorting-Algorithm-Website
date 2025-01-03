@@ -37,7 +37,7 @@ function sliders({
             type="range"
             value={amountValue}
             min="10"
-            max="20"
+            max="50"
             step="1"
             className="w-10/12 h-2  bg-gray-400 rounded-lg appearance-none cursos-pointer dark:bg-gray-70 mb-6"
             onChange={handleAmountChange}
