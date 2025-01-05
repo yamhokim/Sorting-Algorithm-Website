@@ -59,7 +59,7 @@ html {
 }
 
 .textbox {
-  background-color: red;
+  background-color: rgb(23, 61, 105);
   width: 80%;
   height: 30vh;
   display: flex;
@@ -79,4 +79,3 @@ html {
 .darkblue {
   background-color: darkblue;
 }
-

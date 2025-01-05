@@ -77,7 +77,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
               key={index}
               className={`border-2 border-black transition-all duration-300 ${barColor}`}
               style={{
-                height: `${heightnum * 8}px`,
+                height: `${heightnum * 3}px`,
                 width: `${barWidth}px`,
               }}
             ></div>
