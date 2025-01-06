@@ -7,9 +7,10 @@ import { useState } from "react";
 
 type SortPageProp = {
   name: string;
+  text: string;
 };
 
-const SortPage = ({ name }: SortPageProp) => {
+const SortPage = ({ name, text }: SortPageProp) => {
   const [amountValue, setAmountValue] = useState<number>(10);
   const [speedValue, setSpeedValue] = useState<number | number>(1);
 
@@ -25,7 +26,7 @@ const SortPage = ({ name }: SortPageProp) => {
               speedValue={speedValue}
             />
           </div>
-          <TextBox text={`This is the code implementation for ${name}`} />
+          <TextBox text={text} />
           <Sliders
             amountValue={amountValue}
             setAmountValue={setAmountValue}

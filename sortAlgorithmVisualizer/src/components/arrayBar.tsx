@@ -23,6 +23,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
   const [minimumIndex, setMinimumIndex] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number[]>([]);
   const [barWidth, setBarWidth] = useState<number>(10);
+  const [buttonState, setButtonState] = useState<boolean>(false);
   // Example speed factor (you could pass this in as a prop or from a context)
   // 1 means normal speed, 3 means 3x faster, etc.
   const speedFactor = speedValue; // or 2 or 3, etc.
@@ -74,7 +75,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
           return (
             <div
               key={index}
-              className={`border-2 border-black transition-all duration-300 ${barColor}`}
+              className={`border-1 ml-1 rounded-t-sm shadow-inner  border-blue-900 transition-all duration-300 ${barColor}`}
               style={{
                 height: `${heightnum * 3}px`,
                 width: `${barWidth}px`,
@@ -84,9 +85,9 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
         })}
       </div>
 
-      <div className="mt-4 flex gap-2">
+      <div className="mt-4 absolute translate-y-40 ">
         <button
-          className="px-4 py-2 bg-green-500 text-white rounded"
+          className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
           onClick={() =>
             handleSortingAlgorithm(
               name,

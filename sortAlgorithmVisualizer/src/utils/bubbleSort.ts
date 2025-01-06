@@ -42,7 +42,10 @@ export function bubbleSort(
         setSwappedIndices(animation.indices);
       }
     }, i * stepDuration);
+    
   });
+
+  
 
   // After all animations, clear highlights
   setTimeout(() => {
@@ -50,3 +53,10 @@ export function bubbleSort(
     setSwappedIndices([]);
   }, animations.length * stepDuration + stepDuration);
 }
+
+
+export const bubbleSortCode = {
+  'python': "lol",
+  'c++': "ok",
+  'Javascript': 'ues'
+};
