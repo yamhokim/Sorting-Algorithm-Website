@@ -1,3 +1,5 @@
+import { SortCodeProps } from "../types/SortCodeTypes";
+
 export function insertionSort(
   numarray: number[],
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
@@ -51,7 +53,7 @@ export function insertionSort(
   }, animations.length * stepDuration + stepDuration);
 }
 
-export const insertionSortCode = {
+export const insertionSortCode: SortCodeProps = {
   Python: "print('Hello World!')",
   "C++": "std::cout << 'Hello, World!' << std::endl;",
   C: "printf('Hello, World!')",

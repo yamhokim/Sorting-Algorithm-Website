@@ -1,45 +1,40 @@
-import "../index.css"
+import "../index.css";
 import Header from "../components/header";
 import ArrayBar from "../components/arrayBar";
 import Sliders from "../components/sliders";
 import TextBox from "../components/textBox";
-import TabList from "../components/Tabs/TabList";
-import TabItem from "../components/Tabs/TabItem";
+import TabsComponent from "../components/Tabs/TabsComponent";
+import { SortCodeProps } from "../types/SortCodeTypes";
 import { useState } from "react";
 
 type SortPageProp = {
-    name: string;
-}
+  name: string;
+  code: SortCodeProps;
+};
 
-const SortPage = ({name}: SortPageProp) => {
-    const [amountValue, setAmountValue] = useState<number>(0);
+const SortPage: React.FC<SortPageProp> = ({ name, code }: SortPageProp) => {
+  const [amountValue, setAmountValue] = useState<number>(0);
 
-    return (
+  const items = Object.entries(code).map(([title, snippet], index) => ({
+    title,
+    content: (
+      <div className="border-2 border-blue-400 rounded-lg p-4">
+        <h1 className="text-3xl text-blue-600">Title Test {index + 1}</h1>
+        <p className="text-blue-600">{snippet}</p>
+      </div>
+    ),
+  }));
+
+  return (
     <>
       <div className="container">
         <div className="main-content">
-          <Header title={name}/>
+          <Header title={name} />
           <div className="array-container bg-blue-900 shadow-inner">
             <ArrayBar amountValue={amountValue} />
           </div>
           <div className="textbox">
-            <TabList activeTabIndex={1}>
-              <TabItem label="Python">
-                <p>{`This is the code implementation of ${name} in Python`}</p>
-              </TabItem>
-              <TabItem label="C++">
-                <p>{`This is the code implementation of ${name} in C++`}</p>
-              </TabItem>
-              <TabItem label="C">
-                <p>{`This is the code implementation of ${name} in C`}</p>
-              </TabItem>
-              <TabItem label="JavaScript">
-                <p>{`This is the code implementation of ${name} in JavaScript`}</p>
-              </TabItem>
-              <TabItem label="Java">
-                <p>{`This is the code implementation of ${name} in Java`}</p>
-              </TabItem>
-            </TabList>
+            <TabsComponent items={items} />
           </div>
           <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
         </div>

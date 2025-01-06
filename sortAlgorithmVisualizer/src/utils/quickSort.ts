@@ -1,3 +1,5 @@
+import { SortCodeProps } from "../types/SortCodeTypes";
+
 export function quickSort(
   numarray: number[],
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
@@ -12,7 +14,7 @@ export function quickSort(
   const arr = [...numarray];
 }
 
-export const quickSortCode = {
+export const quickSortCode: SortCodeProps = {
   Python: "print('Hello World!')",
   "C++": "std::cout << 'Hello, World!' << std::endl;",
   C: "printf('Hello, World!')",

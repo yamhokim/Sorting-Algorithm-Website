@@ -1,3 +1,5 @@
+import { SortCodeProps } from "../types/SortCodeTypes";
+
 export function mergeSort(
   numarray: number[],
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
@@ -18,7 +20,7 @@ export function mergeSort(
   }
 }
 
-export const mergSortCode = {
+export const mergeSortCode: SortCodeProps = {
   Python: "print('Hello World!')",
   "C++": "std::cout << 'Hello, World!' << std::endl;",
   C: "printf('Hello, World!')",

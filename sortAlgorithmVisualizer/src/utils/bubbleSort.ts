@@ -1,3 +1,5 @@
+import { SortCodeProps } from "../types/SortCodeTypes";
+
 export function bubbleSort(
   numarray: number[],
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
@@ -51,7 +53,7 @@ export function bubbleSort(
   }, animations.length * stepDuration + stepDuration);
 }
 
-export const bubbleSortCode = {
+export const bubbleSortCode: SortCodeProps = {
   Python: "print('Hello World!')",
   "C++": "std::cout << 'Hello, World!' << std::endl;",
   C: "printf('Hello, World!')",
