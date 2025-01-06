@@ -76,9 +76,91 @@ export function selectionSort(
 }
 
 export const selectionSortCode: SortCodeProps = {
-  Python: "print('Hello World!')",
-  "C++": "std::cout << 'Hello, World!' << std::endl;",
-  C: "printf('Hello, World!')",
-  JavaScript: "console.log('Hello, World!')",
-  Java: "System.out.println('Hello, World!');",
+  Python: `
+  def selection_sort(arr):
+    n = len(arr)
+    for i in range(n - 1):
+        min_idx = i
+        
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+  `,
+  "C++": `
+  #include <bits/stdc++.h>
+using namespace std;
+
+void selectionSort(vector<int> &arr) {
+    int n = arr.size();
+
+    for (int i = 0; i < n - 1; ++i) {
+        int min_idx = i;
+
+        for (int j = i + 1; j < n; ++j) {
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j; 
+            }
+        }
+
+        swap(arr[i], arr[min_idx]);
+    }
+}`,
+  C: `
+  #include <stdio.h>
+
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int min_idx = i;
+
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min_idx]) {              
+                min_idx = j;
+            }
+        }
+
+        int temp = arr[i];
+        arr[i] = arr[min_idx];
+        arr[min_idx] = temp;
+    }
+}`,
+  JavaScript: `
+  function selectionSort(arr) {
+    let n = arr.length;
+    for (let i = 0; i < n - 1; i++) {
+        let min_idx = i;
+
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min_idx]) {            
+                min_idx = j;
+            }
+        }
+
+        let temp = arr[i];
+        arr[i] = arr[min_idx];
+        arr[min_idx] = temp;
+    }
+}`,
+  Java: `
+  import java.util.Arrays;
+
+class GfG {
+
+    static void selectionSort(int[] arr){
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int min_idx = i;
+
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[min_idx]) {
+                    min_idx = j;
+                }
+            }
+
+            int temp = arr[i];
+            arr[i] = arr[min_idx];
+            arr[min_idx] = temp;           
+        }
+    }`,
 };

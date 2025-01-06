@@ -5,7 +5,9 @@ import Sliders from "../components/sliders";
 import TextBox from "../components/textBox";
 import TabsComponent from "../components/Tabs/TabsComponent";
 import { SortCodeProps } from "../types/SortCodeTypes";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 type SortPageProp = {
   name: string;
@@ -20,7 +22,13 @@ const SortPage: React.FC<SortPageProp> = ({ name, code }: SortPageProp) => {
     content: (
       <div className="border-2 border-blue-400 rounded-lg p-4">
         <h1 className="text-3xl text-blue-600">Title Test {index + 1}</h1>
-        <p className="text-blue-600">{snippet}</p>
+        <SyntaxHighlighter
+          language={title.toLowerCase()} // Dynamically set language based on title
+          style={dracula} // Use the Dracula theme for syntax highlighting
+          showLineNumbers // Show line numbers
+        >
+          {snippet.trim()} {/* Ensure the code has no extra whitespace */}
+        </SyntaxHighlighter>
       </div>
     ),
   }));
