@@ -53,6 +53,12 @@ export function insertionSort(
   }, animations.length * stepDuration + stepDuration);
 }
 
+export const insertionSortDescription: string = `
+Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time. It's less performant than advanced sorting algorithms, but it can still have some advantages: it's really easy to implement and it's efficient on small data structures almost sorted.
+
+The algorithm divides the data structure in two sublists: a sorted one, and one still to sort. Initially, the sorted sublist is made up of just one element and it gets progressively filled. For every iteration, the algorithm picks an element on the unsorted sublist and inserts it at the right place in the sorted sublist. It's available in several variants such as Gnome Sort.
+`;
+
 export const insertionSortCode: SortCodeProps = {
   Python: `
   def insertionSort(arr):

@@ -12,9 +12,14 @@ import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 type SortPageProp = {
   name: string;
   code: SortCodeProps;
+  text: string;
 };
 
-const SortPage: React.FC<SortPageProp> = ({ name, code }: SortPageProp) => {
+const SortPage: React.FC<SortPageProp> = ({
+  name,
+  code,
+  text,
+}: SortPageProp) => {
   const [amountValue, setAmountValue] = useState<number>(0);
 
   const items = Object.entries(code).map(([title, snippet], _) => ({
@@ -43,7 +48,7 @@ const SortPage: React.FC<SortPageProp> = ({ name, code }: SortPageProp) => {
           </div>
           <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
           <div className="codebox flex-grow">
-            <TextBox text={"poopy"} />
+            <TextBox text={text} />
           </div>
           <div className="codebox flex-grow">
             <TabsComponent items={items} />

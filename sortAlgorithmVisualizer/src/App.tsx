@@ -4,12 +4,19 @@ import Home from "./pages";
 import SortPage from "./pages/sortPage";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { bubbleSortCode } from "./utils/bubbleSort";
-import { insertionSortCode } from "./utils/insertionSort";
-import { selectionSortCode } from "./utils/selectionSort";
-import { mergeSortCode } from "./utils/mergeSort";
-import { quickSortCode } from "./utils/quickSort";
-import { heapSortCode } from "./utils/heapSort";
+import { bubbleSortCode, bubbleSortDescription } from "./utils/bubbleSort";
+import {
+  insertionSortCode,
+  insertionSort,
+  insertionSortDescription,
+} from "./utils/insertionSort";
+import {
+  selectionSortCode,
+  selectionSortDescription,
+} from "./utils/selectionSort";
+import { mergeSortCode, mergeSortDescription } from "./utils/mergeSort";
+import { quickSortCode, quickSortDescription } from "./utils/quickSort";
+import { heapSortCode, heapSortDescription } from "./utils/heapSort";
 
 function App() {
   const [selectedButton, setSelectedButton] = useState(null);
@@ -30,6 +37,7 @@ function App() {
                 key="bubble-sort"
                 name="Bubble Sort"
                 code={bubbleSortCode}
+                text={bubbleSortDescription}
               />
             }
           />
@@ -40,6 +48,7 @@ function App() {
                 key="insertion-sort"
                 name="Insertion Sort"
                 code={insertionSortCode}
+                text={insertionSortDescription}
               />
             }
           />
@@ -50,6 +59,7 @@ function App() {
                 key="selection-sort"
                 name="Selection Sort"
                 code={selectionSortCode}
+                text={selectionSortDescription}
               />
             }
           />
@@ -60,6 +70,7 @@ function App() {
                 key="merge-sort"
                 name="Merge Sort"
                 code={mergeSortCode}
+                text={mergeSortDescription}
               />
             }
           />
@@ -70,13 +81,19 @@ function App() {
                 key="quick-sort"
                 name="Quick Sort"
                 code={quickSortCode}
+                text={quickSortDescription}
               />
             }
           />
           <Route
             path="/heap-sort"
             element={
-              <SortPage key="heap-sort" name="Heap Sort" code={heapSortCode} />
+              <SortPage
+                key="heap-sort"
+                name="Heap Sort"
+                code={heapSortCode}
+                text={heapSortDescription}
+              />
             }
           />
         </Routes>
