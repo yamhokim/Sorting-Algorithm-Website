@@ -17,17 +17,17 @@ type SortPageProp = {
 const SortPage: React.FC<SortPageProp> = ({ name, code }: SortPageProp) => {
   const [amountValue, setAmountValue] = useState<number>(0);
 
-  const items = Object.entries(code).map(([title, snippet], index) => ({
+  const items = Object.entries(code).map(([title, snippet], _) => ({
     title,
     content: (
-      <div className="border-2 border-blue-400 rounded-lg p-4">
-        <h1 className="text-3xl text-blue-600">Title Test {index + 1}</h1>
+      <div>
         <SyntaxHighlighter
-          language={title.toLowerCase()} // Dynamically set language based on title
-          style={dracula} // Use the Dracula theme for syntax highlighting
-          showLineNumbers // Show line numbers
+          language={title.toLowerCase()}
+          style={dracula}
+          showLineNumbers
+          customStyle={{ borderRadius: "1rem" }}
         >
-          {snippet.trim()} {/* Ensure the code has no extra whitespace */}
+          {snippet.trim()}
         </SyntaxHighlighter>
       </div>
     ),
@@ -41,10 +41,10 @@ const SortPage: React.FC<SortPageProp> = ({ name, code }: SortPageProp) => {
           <div className="array-container bg-blue-900 shadow-inner">
             <ArrayBar amountValue={amountValue} />
           </div>
-          <div className="textbox">
+          <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
+          <div className="codebox flex-grow">
             <TabsComponent items={items} />
           </div>
-          <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
         </div>
       </div>
     </>

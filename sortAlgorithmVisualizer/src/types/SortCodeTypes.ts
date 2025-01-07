@@ -1,6 +1,6 @@
 export interface SortCodeProps {
   Python: string;
-  "C++": string;
+  CPP: string;
   C: string;
   JavaScript: string;
   Java: string;
