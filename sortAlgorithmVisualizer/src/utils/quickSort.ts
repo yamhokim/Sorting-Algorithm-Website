@@ -36,10 +36,7 @@ def quickSort(arr, low, high):
         pi = partition(arr, low, high)
         quickSort(arr, low, pi - 1)
         quickSort(arr, pi + 1, high)`,
-  "C++": `
-  #include <bits/stdc++.h>
-using namespace std;
-
+  CPP: `
 int partition(vector<int>& arr, int low, int high) {
     int pivot = arr[high];
     int i = low - 1;
@@ -64,8 +61,6 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }`,
   C: `
-  #include <stdio.h>
-
 void swap(int* a, int* b);
 
 int partition(int arr[], int low, int high) {    
@@ -97,8 +92,7 @@ void swap(int* a, int* b) {
     *b = t;
 }`,
   JavaScript: `
-  function partition(arr, low, high)
-{
+  function partition(arr, low, high) {
     let pivot = arr[high];
     let i = low - 1;
 
@@ -113,15 +107,13 @@ void swap(int* a, int* b) {
     return i + 1;
 }
 
-function swap(arr, i, j)
-{
+function swap(arr, i, j) {
     let temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
 }
 
-function quickSort(arr, low, high)
-{
+function quickSort(arr, low, high) {
     if (low < high) {
         let pi = partition(arr, low, high);
         quickSort(arr, low, pi - 1);
@@ -129,35 +121,32 @@ function quickSort(arr, low, high)
     }
 }`,
   Java: `
-  import java.util.Arrays;
+  static int partition(int[] arr, int low, int high) {    
+    int pivot = arr[high];
+    int i = low - 1;
 
-class GfG {
-    static int partition(int[] arr, int low, int high) {    
-        int pivot = arr[high];
-        int i = low - 1;
-
-        for (int j = low; j <= high - 1; j++) {
-            if (arr[j] < pivot) {
-                i++;
-                swap(arr, i, j);
-            }
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr, i, j);
         }
-
-        swap(arr, i + 1, high);  
-        return i + 1;
     }
 
-    static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+    swap(arr, i + 1, high);  
+    return i + 1;
+}
 
-    static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            int pi = partition(arr, low, high);
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
-        }
-    }`,
+static void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+static void quickSort(int[] arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}`,
 };

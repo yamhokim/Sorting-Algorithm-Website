@@ -64,12 +64,8 @@ export const insertionSortCode: SortCodeProps = {
             arr[j + 1] = arr[j]
             j -= 1
         arr[j + 1] = key`,
-  "C++": `
-  #include <iostream>
-using namespace std;
-
-void insertionSort(int arr[], int n)
-{
+  CPP: `
+void insertionSort(int arr[], int n) {
     for (int i = 1; i < n; ++i) {
         int key = arr[i];
         int j = i - 1;
@@ -82,10 +78,7 @@ void insertionSort(int arr[], int n)
     }
 }`,
   C: `
-  #include <stdio.h>
-
-void insertionSort(int arr[], int n)
-{
+void insertionSort(int arr[], int n) {
     for (int i = 1; i < n; ++i) {
         int key = arr[i];
         int j = i - 1;
@@ -112,8 +105,7 @@ void insertionSort(int arr[], int n)
 }`,
   Java: `
   public class InsertionSort {
-    void sort(int arr[])
-    {
+    void sort(int arr[]) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             int key = arr[i];

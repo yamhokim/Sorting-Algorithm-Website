@@ -68,11 +68,7 @@ export const bubbleSortCode: SortCodeProps = {
         if (swapped == False):
             break
   `,
-  "C++": `
-  #include <bits/stdc++.h>
-using namespace std;
-
-// An optimized version of Bubble Sort 
+  CPP: `
 void bubbleSort(vector<int>& arr) {
     int n = arr.size();
     bool swapped;
@@ -91,9 +87,6 @@ void bubbleSort(vector<int>& arr) {
     }
 }`,
   C: `
-  #include <stdbool.h>
-#include <stdio.h>
-
 void swap(int* xp, int* yp) {
     int temp = *xp;
     *xp = *yp;
@@ -137,27 +130,23 @@ void bubbleSort(int arr[], int n) {
     }
 }`,
   Java: `
-  import java.io.*;
-
-class GFG {
-    
-    static void bubbleSort(int arr[], int n){
-        int i, j, temp;
-        boolean swapped;
-        for (i = 0; i < n - 1; i++) {
-            swapped = false;
-            for (j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    
-                    temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    swapped = true;
-                }
+  static void bubbleSort(int arr[], int n) {
+    int i, j, temp;
+    boolean swapped;
+    for (i = 0; i < n - 1; i++) {
+        swapped = false;
+        for (j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = true;
             }
-
-            if (swapped == false)
-                break;
         }
-    }`,
+
+        if (swapped == false)
+            break;
+    }
+  }`,
 };

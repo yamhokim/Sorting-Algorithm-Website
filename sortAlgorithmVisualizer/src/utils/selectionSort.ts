@@ -88,9 +88,7 @@ export const selectionSortCode: SortCodeProps = {
         
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
   `,
-  "C++": `
-  #include <bits/stdc++.h>
-using namespace std;
+  CPP: `
 
 void selectionSort(vector<int> &arr) {
     int n = arr.size();
@@ -108,8 +106,6 @@ void selectionSort(vector<int> &arr) {
     }
 }`,
   C: `
-  #include <stdio.h>
-
 void selectionSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int min_idx = i;
@@ -143,24 +139,20 @@ void selectionSort(int arr[], int n) {
     }
 }`,
   Java: `
-  import java.util.Arrays;
+  static void selectionSort(int[] arr) {
+    int n = arr.length;
+    for (int i = 0; i < n - 1; i++) {
+        int min_idx = i;
 
-class GfG {
-
-    static void selectionSort(int[] arr){
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
-            int min_idx = i;
-
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[min_idx]) {
-                    min_idx = j;
-                }
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j;
             }
-
-            int temp = arr[i];
-            arr[i] = arr[min_idx];
-            arr[min_idx] = temp;           
         }
-    }`,
+
+        int temp = arr[i];
+        arr[i] = arr[min_idx];
+        arr[min_idx] = temp;           
+    }
+}`,
 };
