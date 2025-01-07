@@ -43,6 +43,9 @@ const SortPage: React.FC<SortPageProp> = ({ name, code }: SortPageProp) => {
           </div>
           <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
           <div className="codebox flex-grow">
+            <TextBox text={"poopy"} />
+          </div>
+          <div className="codebox flex-grow">
             <TabsComponent items={items} />
           </div>
         </div>

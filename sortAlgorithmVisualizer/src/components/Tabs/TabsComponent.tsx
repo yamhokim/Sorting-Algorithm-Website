@@ -9,10 +9,6 @@ const TabsComponent = ({ items }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const firstBtnRef = useRef();
 
-  useEffect(() => {
-    firstBtnRef.current.focus();
-  }, []);
-
   const iconMap = {
     Python: python_icon,
     CPP: cpp_icon,
@@ -22,39 +18,41 @@ const TabsComponent = ({ items }) => {
   };
 
   return (
-    <div className="flex flex-col w-full">
-      <h1 class="text-4xl font-bold text-white-800 self-start ml-4 mb-4">
-        Code Implementation
-      </h1>
-      <div className="bg-blue-600 p-1 rounded-xl flex justify-between items-center gap-x-2 font-bold text-white">
-        {items.map((item, index) => (
-          <button
-            ref={index === 0 ? firstBtnRef : null}
-            key={index}
-            onClick={() => setSelectedTab(index)}
-            className={`outline-none w-full p-2 hover:bg-blue-400 rounded-xl text-center focus:ring-2 focus:bg-white focus:text-blue-600 transition duration-200 hover:scale-110 ${
-              selectedTab === index ? "ring-2 bg-white" : ""
-            }`}
-          >
-            {
-              <img
-                src={iconMap[item.title]}
-                alt={`${item.title} icon`}
-                className="h-8 w-8 mx-auto" // Adjust the size of the icon
-              />
-            }
-          </button>
-        ))}
-      </div>
+    <>
+      <div className="flex flex-col w-full">
+        <h1 className="text-4xl font-bold text-white-800 self-start ml-4 mb-4">
+          Code Implementations
+        </h1>
+        <div className="bg-blue-600 p-1 rounded-xl flex justify-between items-center gap-x-2 font-bold text-white">
+          {items.map((item, index) => (
+            <button
+              ref={index === 0 ? firstBtnRef : null}
+              key={index}
+              onClick={() => setSelectedTab(index)}
+              className={`outline-none w-full p-2 hover:bg-blue-400 rounded-xl text-center focus:ring-2 focus:bg-white focus:text-blue-600 transition duration-200 hover:scale-110 ${
+                selectedTab === index ? "ring-2 bg-white" : ""
+              }`}
+            >
+              {
+                <img
+                  src={iconMap[item.title]}
+                  alt={`${item.title} icon`}
+                  className="h-8 w-8 mx-auto" // Adjust the size of the icon
+                />
+              }
+            </button>
+          ))}
+        </div>
 
-      <div className="p-4 rounded-xl w-full flex-grow">
-        {items.map((item, index) => (
-          <div className={`${selectedTab === index ? "" : "hidden"}`}>
-            {item.content}
-          </div>
-        ))}
+        <div className="p-4 rounded-xl w-full flex-grow">
+          {items.map((item, index) => (
+            <div className={`${selectedTab === index ? "" : "hidden"}`}>
+              {item.content}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
