@@ -4,6 +4,7 @@ import python_icon from "../../assets/images/python_icon.png";
 import cpp_icon from "../../assets/images/cpp_icon.png";
 import javascript_icon from "../../assets/images/javascript_icon.png";
 import java_icon from "../../assets/images/java_icon.png";
+import "../../index.css";
 
 const TabsComponent = ({ items }) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -20,7 +21,7 @@ const TabsComponent = ({ items }) => {
   return (
     <>
       <div className="flex flex-col w-full">
-        <h1 className="text-4xl font-bold text-white-800 self-start ml-4 mb-4">
+        <h1 className="neontext text-4xl font-bold text-white-800 self-start ml-4 mb-4">
           Code Implementations
         </h1>
         <div className="bg-blue-600 p-1 rounded-xl flex justify-between items-center gap-x-2 font-bold text-white">
