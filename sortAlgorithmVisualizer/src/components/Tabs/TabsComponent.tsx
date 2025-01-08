@@ -20,7 +20,7 @@ const TabsComponent = ({ items }) => {
 
   return (
     <>
-      <div className="flex flex-col w-[80%]">
+      <div className="flex flex-col w-[70%]">
         <h1 className="neontext text-5xl font-bold text-white-800 self-start ml-4 mb-4">
           Code Implementations
         </h1>
