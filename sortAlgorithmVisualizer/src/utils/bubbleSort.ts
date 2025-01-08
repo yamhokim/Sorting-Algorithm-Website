@@ -63,6 +63,13 @@ It's a simple algorithm to implement, but not much efficient: on average, quadra
 It has several variants to improve its performances, such as Shaker Sort, Odd Even Sort and Comb Sort.
 `;
 
+export const bubbleSortComplexities = {
+  "Average Case": "O(n²)",
+  "Best Case": "O(n)",
+  "Worst Case": "O(n²)",
+  "Space Complexity": "O(1)",
+};
+
 export const bubbleSortCode: SortCodeProps = {
   Python: `
   def bubbleSort(arr):

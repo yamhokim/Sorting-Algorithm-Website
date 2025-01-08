@@ -24,6 +24,13 @@ export const mergeSortDescription: string = `
 Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.
 `;
 
+export const mergeSortComplexities = {
+  "Average Case": "O(nlogn)",
+  "Best Case": "O(nlogn)",
+  "Worst Case": "O(nlogn)",
+  "Space Complexity": "O(n)",
+};
+
 export const mergeSortCode: SortCodeProps = {
   Python: `
   def merge(arr, left, mid, right):

@@ -83,6 +83,13 @@ It's a really simple and intuitive algorithm that does not require additional me
 This algorithm has been upgraded and enhanced in several variants such as Heap Sort.
 `;
 
+export const selectionSortComplexities = {
+  "Average Case": "O(n²)",
+  "Best Case": "O(n²)",
+  "Worst Case": "O(n²)",
+  "Space Complexity": "O(1)",
+};
+
 export const selectionSortCode: SortCodeProps = {
   Python: `
   def selection_sort(arr):

@@ -22,6 +22,13 @@ The heap is a data structure representable as a binary tree, where each node has
 The data structure gets ordered to form the heap initially, and then it gets progressively reordered with an algorithm similar to Selection Sort, starting from the bigger elements.
 `;
 
+export const heapSortComplexities = {
+  "Average Case": "O(nlogn)",
+  "Best Case": "O(nlogn)",
+  "Worst Case": "O(nlogn)",
+  "Space Complexity": "O(1)",
+};
+
 export const heapSortCode: SortCodeProps = {
   Python: `
   def heapify(arr, n, i):    

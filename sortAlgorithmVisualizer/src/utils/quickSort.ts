@@ -22,6 +22,13 @@ This division in partitions is done based on an element, called pivot: all the e
 This partition technique based on the pivot is called Divide and conquer. It's a performant strategy also used by other sorting algorithms, such as Merge Sort.
 `;
 
+export const quickSortComplexities = {
+  "Average Case": "O(nlogn)",
+  "Best Case": "O(nlogn)",
+  "Worst Case": "O(n²)",
+  "Space Complexity": "O(n)",
+};
+
 export const quickSortCode: SortCodeProps = {
   Python: `
   def partition(arr, low, high):
