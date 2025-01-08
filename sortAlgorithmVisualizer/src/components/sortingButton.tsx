@@ -7,7 +7,7 @@ const HomeButton = ({ label, onClick, isSelected }) => {
   return (
     <button
       onClick={onClick}
-      className={`w-16 bg-blue-700 rounded-full h-16 px-3 flex items-center justify-center
+      className={`w-16 bg-blue-700 rounded-full h-16 px-3 flex items-center justify-center sm:
             ${
               isSelected
                 ? "border-blue-900 bg-blue-900"
