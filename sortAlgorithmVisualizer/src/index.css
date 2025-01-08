@@ -81,8 +81,8 @@ html {
 
 .array-bar {
   background-color: rgb(10, 39, 71);
-  width: 80%;
-  height: 25vh;
+  width: 90%;
+  height: 80%;
   overflow: hidden;
   position: static;
   border-radius: 24px 24px 24px 24px;
