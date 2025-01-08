@@ -61,7 +61,7 @@ const Home = () => {
                   EngSci Robo @ UofT | Insert ur info here
                 </p>
                 <p className="leading-relaxed mb-3 text-sm font-mono text-wrap px-2">
-                  yoonhoemail@gmail.com
+                  yoonho.luke.kim@gmail.com
                 </p>
                 <div className="flex justify-center gap-5">
                   <a

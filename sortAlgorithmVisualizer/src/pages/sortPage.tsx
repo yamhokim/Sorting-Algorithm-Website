@@ -34,7 +34,7 @@ const SortPage: React.FC<SortPageProp> = ({
           language={title.toLowerCase()}
           style={dracula}
           showLineNumbers
-          customStyle={{ borderRadius: "1rem" }}
+          customStyle={{ borderRadius: "1rem", fontSize: "1.1em" }}
         >
           {snippet.trim()}
         </SyntaxHighlighter>

@@ -42,7 +42,7 @@ export const heapSortCode: SortCodeProps = {
         largest = r
 
     if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]  # Swap
+        arr[i], arr[largest] = arr[largest], arr[i]
         heapify(arr, n, largest)
 
 def heapSort(arr):
@@ -132,7 +132,7 @@ void heapSort(int arr[], int n) {
     }
 
     if (largest !== i) {
-        let temp = arr[i]; // Swap
+        let temp = arr[i];
         arr[i] = arr[largest];
         arr[largest] = temp;
         heapify(arr, n, largest);

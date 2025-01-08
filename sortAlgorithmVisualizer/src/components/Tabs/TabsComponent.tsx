@@ -20,17 +20,17 @@ const TabsComponent = ({ items }) => {
 
   return (
     <>
-      <div className="flex flex-col w-full">
-        <h1 className="neontext text-4xl font-bold text-white-800 self-start ml-4 mb-4">
+      <div className="flex flex-col w-[80%]">
+        <h1 className="neontext text-5xl font-bold text-white-800 self-start ml-4 mb-4">
           Code Implementations
         </h1>
-        <div className="bg-blue-600 p-1 rounded-xl flex justify-between items-center gap-x-2 font-bold text-white">
+        <div className="bg-blue-700 p-3 rounded-xl flex justify-between items-center gap-x-2 font-bold text-white">
           {items.map((item, index) => (
             <button
               ref={index === 0 ? firstBtnRef : null}
               key={index}
               onClick={() => setSelectedTab(index)}
-              className={`outline-none w-full p-2 hover:bg-blue-400 rounded-xl text-center focus:ring-2 focus:bg-white focus:text-blue-600 transition duration-200 hover:scale-110 ${
+              className={`outline-none w-full p-1 hover:bg-blue-400 rounded-xl text-center focus:ring-2 focus:bg-white focus:text-blue-600 transition duration-200 hover:scale-110 ${
                 selectedTab === index ? "ring-2 bg-white" : ""
               }`}
             >
@@ -38,7 +38,7 @@ const TabsComponent = ({ items }) => {
                 <img
                   src={iconMap[item.title]}
                   alt={`${item.title} icon`}
-                  className="h-8 w-7 mx-auto" // Adjust the size of the icon
+                  className="h-10 w-9 mx-auto" // Adjust the size of the icon
                 />
               }
             </button>
