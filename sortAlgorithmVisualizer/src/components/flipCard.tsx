@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ComplexityProps } from "../types/ComplexityTypes";
-import "../index.css"; // Import the CSS for styling
+import "../index.css";
 
 interface FlipCardProps {
   complexities: ComplexityProps;
