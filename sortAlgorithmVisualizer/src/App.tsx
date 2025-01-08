@@ -4,6 +4,7 @@ import Home from "./pages";
 import SortPage from "./pages/sortPage";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { bubbleSortCode } from "./utils/bubbleSort";
 
 function App() {
   const [selectedButton, setSelectedButton] = useState(null);
@@ -19,7 +20,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/bubble-sort"
-            element={<SortPage key="bubble-sort" name="Bubble Sort" />}
+            element={
+              <SortPage
+                key="bubble-sort"
+                name="Bubble Sort"
+                text={bubbleSortCode["python"]}
+              />
+            }
           />
           <Route
             path="/insertion-sort"
