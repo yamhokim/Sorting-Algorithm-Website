@@ -48,7 +48,7 @@ const SortPage: React.FC<SortPageProp> = ({
         <div className="main-content">
           <div className="bar-content">
             <Header title={name} />
-            <div className="array-container bg-blue-900 shadow-inner">
+            <div className="array-container shadow-inner">
               <ArrayBar
                 name={name}
                 amountValue={amountValue}

@@ -12,7 +12,7 @@ const FlipCard = ({ complexities }: FlipCardProps) => {
   useEffect(() => {
     const flipTimeout = setTimeout(() => {
       setFlipped(true);
-    }, 100);
+    }, 500);
 
     return () => clearTimeout(flipTimeout);
   }, []);
@@ -21,10 +21,8 @@ const FlipCard = ({ complexities }: FlipCardProps) => {
     <div className={`w-[30%] ${flipped ? "flipped" : ""}`}>
       <div className="card">
         <div className="card-back">
-          <div
-            className={`h-[60%] bg-blue-600 text-white p-4 rounded-xl border-4 border-blue-800`}
-          >
-            <h2 className="text-xl font-bold mb-4">Complexity</h2>
+          <div className="flipbox text-white p-4 rounded-xl">
+            <h2 className="neontext text-2xl font-bold mb-1">Complexity</h2>
             <table className="w-full text-left border-separate border-spacing-y-2">
               <tbody>
                 {Object.entries(complexities).map(([key, value]) => (

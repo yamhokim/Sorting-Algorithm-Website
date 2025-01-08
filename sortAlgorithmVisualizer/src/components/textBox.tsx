@@ -7,16 +7,24 @@ interface TextBoxProps {
   complexities: ComplexityProps;
 }
 
+function formatText(text: string) {
+  const formattedText = text.replace(/\n/g, "<br />");
+  return { __html: formattedText };
+}
+
 const TextBox = ({ text, complexities }: TextBoxProps) => {
   return (
     <>
       <div className="flex flex-col w-full">
-        <div className="flex w-full gap-4 px-4 items-center">
+        <div className="flex w-full gap-4 px-4">
           <div className="w-[70%]">
-            <h1 className="text-4xl font-bold text-white-800 text-left mb-4">
+            <h1 className="neontext text-4xl font-bold text-white-800 text-left mb-4">
               Description
             </h1>
-            <p className="text-left text-white-800 self-start mb-4">{text}</p>
+            <p
+              className="text-left text-lg font-bold text-white-800 self-start mb-4"
+              dangerouslySetInnerHTML={formatText(text)}
+            />
           </div>
 
           <FlipCard complexities={complexities} />

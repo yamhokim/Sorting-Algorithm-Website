@@ -15,13 +15,11 @@ export function quickSort(
   const arr = [...numarray];
 }
 
-export const quickSortDescription: string = `
-Quick Sort is a sorting algorithm based on splitting the data structure in smaller partitions and sort them recursively until the data structure is sorted.
+export const quickSortDescription: string = `Quick Sort is a sorting algorithm based on splitting the data structure in smaller partitions and sort them recursively until the data structure is sorted.
 
 This division in partitions is done based on an element, called pivot: all the elements bigger than the pivot get placed on the right side of the structure, the smaller ones to the left, creating two partitions. Next, this procedure gets applied recursively to the two partitions and so on.
 
-This partition technique based on the pivot is called Divide and conquer. It's a performant strategy also used by other sorting algorithms, such as Merge Sort.
-`;
+This partition technique based on the pivot is called Divide and conquer. It's a performant strategy also used by other sorting algorithms, such as Merge Sort.`;
 
 export const quickSortComplexities: ComplexityProps = {
   "Average Case": "O(nlogn)",
