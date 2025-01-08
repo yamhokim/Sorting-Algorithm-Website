@@ -4,19 +4,36 @@ import Home from "./pages";
 import SortPage from "./pages/sortPage";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { bubbleSortCode, bubbleSortDescription } from "./utils/bubbleSort";
+import {
+  bubbleSortCode,
+  bubbleSortDescription,
+  bubbleSortComplexities,
+} from "./utils/bubbleSort";
 import {
   insertionSortCode,
-  insertionSort,
   insertionSortDescription,
+  insertionSortComplexities,
 } from "./utils/insertionSort";
 import {
   selectionSortCode,
   selectionSortDescription,
+  selectionSortComplexities,
 } from "./utils/selectionSort";
-import { mergeSortCode, mergeSortDescription } from "./utils/mergeSort";
-import { quickSortCode, quickSortDescription } from "./utils/quickSort";
-import { heapSortCode, heapSortDescription } from "./utils/heapSort";
+import {
+  mergeSortCode,
+  mergeSortDescription,
+  mergeSortComplexities,
+} from "./utils/mergeSort";
+import {
+  quickSortCode,
+  quickSortDescription,
+  quickSortComplexities,
+} from "./utils/quickSort";
+import {
+  heapSortCode,
+  heapSortDescription,
+  heapSortComplexities,
+} from "./utils/heapSort";
 
 function App() {
   const [selectedButton, setSelectedButton] = useState(null);
@@ -38,6 +55,7 @@ function App() {
                 name="Bubble Sort"
                 code={bubbleSortCode}
                 text={bubbleSortDescription}
+                complexities={bubbleSortComplexities}
               />
             }
           />
@@ -49,6 +67,7 @@ function App() {
                 name="Insertion Sort"
                 code={insertionSortCode}
                 text={insertionSortDescription}
+                complexities={insertionSortComplexities}
               />
             }
           />
@@ -60,6 +79,7 @@ function App() {
                 name="Selection Sort"
                 code={selectionSortCode}
                 text={selectionSortDescription}
+                complexities={selectionSortComplexities}
               />
             }
           />
@@ -71,6 +91,7 @@ function App() {
                 name="Merge Sort"
                 code={mergeSortCode}
                 text={mergeSortDescription}
+                complexities={mergeSortComplexities}
               />
             }
           />
@@ -82,6 +103,7 @@ function App() {
                 name="Quick Sort"
                 code={quickSortCode}
                 text={quickSortDescription}
+                complexities={quickSortComplexities}
               />
             }
           />
@@ -93,6 +115,7 @@ function App() {
                 name="Heap Sort"
                 code={heapSortCode}
                 text={heapSortDescription}
+                complexities={heapSortComplexities}
               />
             }
           />

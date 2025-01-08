@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
+import { ComplexityProps } from "../types/ComplexityTypes";
 import "../index.css"; // Import the CSS for styling
 
-const FlipCard = () => {
+interface FlipCardProps {
+  complexities: ComplexityProps;
+}
+
+const FlipCard = ({ complexities }: FlipCardProps) => {
   const [flipped, setFlipped] = useState(false);
 
   useEffect(() => {
     const flipTimeout = setTimeout(() => {
       setFlipped(true);
-    }, 500); // Flip after 1 second on load
+    }, 100);
 
-    return () => clearTimeout(flipTimeout); // Cleanup on unmount
+    return () => clearTimeout(flipTimeout);
   }, []);
 
   return (
@@ -22,22 +27,12 @@ const FlipCard = () => {
             <h2 className="text-xl font-bold mb-4">Complexity</h2>
             <table className="w-full text-left border-separate border-spacing-y-2">
               <tbody>
-                <tr className="border-t">
-                  <td className="py-2 font-bold">Average Case</td>
-                  <td className="text-right">O(n²)</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-2 font-bold">Best Case</td>
-                  <td className="py-2 text-right">O(n)</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-2 font-bold">Worst Case</td>
-                  <td className="text-right">O(n²)</td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-2 font-bold">Space Complexity</td>
-                  <td className="text-right">O(n²)</td>
-                </tr>
+                {Object.entries(complexities).map(([key, value]) => (
+                  <tr className="border-t" key={key}>
+                    <td className="py-2 font-bold">{key}</td>
+                    <td className="py-2 text-right">{value}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

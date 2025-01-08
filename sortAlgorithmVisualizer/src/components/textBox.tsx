@@ -1,11 +1,13 @@
 import "../index.css";
+import { ComplexityProps } from "../types/ComplexityTypes";
 import FlipCard from "./flipCard";
 
 interface TextBoxProps {
   text: string;
+  complexities: ComplexityProps;
 }
 
-const TextBox = ({ text }: TextBoxProps) => {
+const TextBox = ({ text, complexities }: TextBoxProps) => {
   return (
     <>
       <div className="flex flex-col w-full">
@@ -17,7 +19,7 @@ const TextBox = ({ text }: TextBoxProps) => {
             <p className="text-left text-white-800 self-start mb-4">{text}</p>
           </div>
 
-          <FlipCard />
+          <FlipCard complexities={complexities} />
         </div>
       </div>
     </>

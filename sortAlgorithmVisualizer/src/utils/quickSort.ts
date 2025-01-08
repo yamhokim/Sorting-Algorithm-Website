@@ -1,4 +1,5 @@
 import { SortCodeProps } from "../types/SortCodeTypes";
+import { ComplexityProps } from "../types/ComplexityTypes";
 
 export function quickSort(
   numarray: number[],
@@ -22,7 +23,7 @@ This division in partitions is done based on an element, called pivot: all the e
 This partition technique based on the pivot is called Divide and conquer. It's a performant strategy also used by other sorting algorithms, such as Merge Sort.
 `;
 
-export const quickSortComplexities = {
+export const quickSortComplexities: ComplexityProps = {
   "Average Case": "O(nlogn)",
   "Best Case": "O(nlogn)",
   "Worst Case": "O(n²)",

@@ -1,4 +1,5 @@
 import { SortCodeProps } from "../types/SortCodeTypes";
+import { ComplexityProps } from "../types/ComplexityTypes";
 
 export function selectionSort(
   numarray: number[],
@@ -83,7 +84,7 @@ It's a really simple and intuitive algorithm that does not require additional me
 This algorithm has been upgraded and enhanced in several variants such as Heap Sort.
 `;
 
-export const selectionSortComplexities = {
+export const selectionSortComplexities: ComplexityProps = {
   "Average Case": "O(n²)",
   "Best Case": "O(n²)",
   "Worst Case": "O(n²)",

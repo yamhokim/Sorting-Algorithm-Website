@@ -1,4 +1,5 @@
 import { SortCodeProps } from "../types/SortCodeTypes";
+import { ComplexityProps } from "../types/ComplexityTypes";
 
 export function heapSort(
   numarray: number[],
@@ -22,7 +23,7 @@ The heap is a data structure representable as a binary tree, where each node has
 The data structure gets ordered to form the heap initially, and then it gets progressively reordered with an algorithm similar to Selection Sort, starting from the bigger elements.
 `;
 
-export const heapSortComplexities = {
+export const heapSortComplexities: ComplexityProps = {
   "Average Case": "O(nlogn)",
   "Best Case": "O(nlogn)",
   "Worst Case": "O(nlogn)",

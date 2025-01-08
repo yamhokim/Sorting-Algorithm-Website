@@ -1,4 +1,5 @@
 import { SortCodeProps } from "../types/SortCodeTypes";
+import { ComplexityProps } from "../types/ComplexityTypes";
 
 export function mergeSort(
   numarray: number[],
@@ -24,7 +25,7 @@ export const mergeSortDescription: string = `
 Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.
 `;
 
-export const mergeSortComplexities = {
+export const mergeSortComplexities: ComplexityProps = {
   "Average Case": "O(nlogn)",
   "Best Case": "O(nlogn)",
   "Worst Case": "O(nlogn)",

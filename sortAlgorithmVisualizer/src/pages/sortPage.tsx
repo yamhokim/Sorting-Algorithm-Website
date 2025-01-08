@@ -5,6 +5,7 @@ import Sliders from "../components/sliders";
 import TextBox from "../components/textBox";
 import TabsComponent from "../components/Tabs/TabsComponent";
 import { SortCodeProps } from "../types/SortCodeTypes";
+import { ComplexityProps } from "../types/ComplexityTypes";
 import React, { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -13,12 +14,14 @@ type SortPageProp = {
   name: string;
   code: SortCodeProps;
   text: string;
+  complexities: ComplexityProps;
 };
 
 const SortPage: React.FC<SortPageProp> = ({
   name,
   code,
   text,
+  complexities,
 }: SortPageProp) => {
   const [amountValue, setAmountValue] = useState<number>(0);
 
@@ -48,7 +51,7 @@ const SortPage: React.FC<SortPageProp> = ({
           </div>
           <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
           <div className="codebox flex-grow">
-            <TextBox text={text} />
+            <TextBox text={text} complexities={complexities} />
           </div>
           <div className="codebox flex-grow">
             <TabsComponent items={items} />
