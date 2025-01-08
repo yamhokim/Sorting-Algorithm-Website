@@ -24,7 +24,7 @@ const FlipCard = ({ complexities }: FlipCardProps) => {
           <div
             className={`h-[60%] bg-blue-600 text-white p-4 rounded-xl border-4 border-blue-800`}
           >
-            <h2 className="text-xl font-bold mb-4">Complexity</h2>
+            <h2 className="title text-xl font-bold mb-4">Complexity</h2>
             <table className="w-full text-left border-separate border-spacing-y-2">
               <tbody>
                 {Object.entries(complexities).map(([key, value]) => (
