@@ -16,7 +16,7 @@ const TextBox = ({ text, complexities }: TextBoxProps) => {
   return (
     <>
       <div className="flex flex-col w-full">
-        <div className="flex w-full gap-4 px-4 items-center">
+        <div className="flex w-full gap-4 px-4">
           <div className="w-[70%]">
             <h1 className="neontext text-4xl font-bold text-white-800 text-left mb-4">
               Description
