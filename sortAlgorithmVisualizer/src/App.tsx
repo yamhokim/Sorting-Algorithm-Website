@@ -4,7 +4,36 @@ import Home from "./pages";
 import SortPage from "./pages/sortPage";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { bubbleSortCode } from "./utils/bubbleSort";
+import {
+  bubbleSortCode,
+  bubbleSortDescription,
+  bubbleSortComplexities,
+} from "./utils/bubbleSort";
+import {
+  insertionSortCode,
+  insertionSortDescription,
+  insertionSortComplexities,
+} from "./utils/insertionSort";
+import {
+  selectionSortCode,
+  selectionSortDescription,
+  selectionSortComplexities,
+} from "./utils/selectionSort";
+import {
+  mergeSortCode,
+  mergeSortDescription,
+  mergeSortComplexities,
+} from "./utils/mergeSort";
+import {
+  quickSortCode,
+  quickSortDescription,
+  quickSortComplexities,
+} from "./utils/quickSort";
+import {
+  heapSortCode,
+  heapSortDescription,
+  heapSortComplexities,
+} from "./utils/heapSort";
 
 function App() {
   const [selectedButton, setSelectedButton] = useState(null);
@@ -24,29 +53,71 @@ function App() {
               <SortPage
                 key="bubble-sort"
                 name="Bubble Sort"
-                text={bubbleSortCode["python"]}
+                code={bubbleSortCode}
+                text={bubbleSortDescription}
+                complexities={bubbleSortComplexities}
               />
             }
           />
           <Route
             path="/insertion-sort"
-            element={<SortPage key="insertion-sort" name="Insertion Sort" />}
+            element={
+              <SortPage
+                key="insertion-sort"
+                name="Insertion Sort"
+                code={insertionSortCode}
+                text={insertionSortDescription}
+                complexities={insertionSortComplexities}
+              />
+            }
           />
           <Route
             path="/selection-sort"
-            element={<SortPage key="selection-sort" name="Selection Sort" />}
+            element={
+              <SortPage
+                key="selection-sort"
+                name="Selection Sort"
+                code={selectionSortCode}
+                text={selectionSortDescription}
+                complexities={selectionSortComplexities}
+              />
+            }
           />
           <Route
             path="/merge-sort"
-            element={<SortPage key="merge-sort" name="Merge Sort" />}
+            element={
+              <SortPage
+                key="merge-sort"
+                name="Merge Sort"
+                code={mergeSortCode}
+                text={mergeSortDescription}
+                complexities={mergeSortComplexities}
+              />
+            }
           />
           <Route
             path="/quick-sort"
-            element={<SortPage key="quick-sort" name="Quick Sort" />}
+            element={
+              <SortPage
+                key="quick-sort"
+                name="Quick Sort"
+                code={quickSortCode}
+                text={quickSortDescription}
+                complexities={quickSortComplexities}
+              />
+            }
           />
           <Route
             path="/heap-sort"
-            element={<SortPage key="heap-sort" name="Heap Sort" />}
+            element={
+              <SortPage
+                key="heap-sort"
+                name="Heap Sort"
+                code={heapSortCode}
+                text={heapSortDescription}
+                complexities={heapSortComplexities}
+              />
+            }
           />
         </Routes>
       </BrowserRouter>
