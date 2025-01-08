@@ -46,19 +46,26 @@ const SortPage: React.FC<SortPageProp> = ({
     <>
       <div className="container">
         <div className="main-content">
-          <Header title={name} />
-          <div className="array-container bg-blue-900 shadow-inner">
-            <ArrayBar
-              name={name}
+          <div className="bar-content">
+            <Header title={name} />
+            <div className="array-container bg-blue-900 shadow-inner">
+              <ArrayBar
+                name={name}
+                amountValue={amountValue}
+                speedValue={speedValue}
+              />
+            </div>
+            <Sliders
               amountValue={amountValue}
+              setAmountValue={setAmountValue}
               speedValue={speedValue}
+              setSpeedValue={setSpeedValue}
             />
           </div>
-          <Sliders amountValue={amountValue} setAmountValue={setAmountValue} />
-          <div className="codebox flex-grow">
+          <div className="textbox flex-grow">
             <TextBox text={text} complexities={complexities} />
           </div>
-          <div className="codebox flex-grow">
+          <div className="textbox flex-grow">
             <TabsComponent items={items} />
           </div>
         </div>

@@ -30,7 +30,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
 
   useEffect(() => {
     // This 600 is currently our container width, we will change this once we figure out our actual container width
-    const newBarWidth = Math.max(2, 600 / amountValue);
+    const newBarWidth = Math.max(2, 500 / amountValue);
     setBarWidth(newBarWidth);
   }, [amountValue]);
 
@@ -75,7 +75,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
           return (
             <div
               key={index}
-              className={`border-1 ml-1 rounded-t-sm shadow-inner  border-blue-900 transition-all duration-300 ${barColor}`}
+              className={`border-1 ml-1 rounded-t-sm shadow-inner order-blue-900 transition-all duration-100 ${barColor}`}
               style={{
                 height: `${heightnum * 3}px`,
                 width: `${barWidth}px`,

@@ -46,7 +46,10 @@ const TabsComponent = ({ items }) => {
 
         <div className="p-1 rounded-xl w-full flex-grow">
           {items.map((item, index) => (
-            <div className={`${selectedTab === index ? "" : "hidden"}`}>
+            <div
+              className={`${selectedTab === index ? "" : "hidden"}`}
+              key={index}
+            >
               {item.content}
             </div>
           ))}
