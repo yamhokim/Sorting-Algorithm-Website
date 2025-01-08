@@ -19,7 +19,7 @@ const FlipCard = () => {
           <div
             className={`h-[60%] bg-blue-600 text-white p-4 rounded-xl border-4 border-blue-800`}
           >
-            <h2 className="text-xl font-bold mb-4">Complexities</h2>
+            <h2 className="text-xl font-bold mb-4">Complexity</h2>
             <table className="w-full text-left border-separate border-spacing-y-2">
               <tbody>
                 <tr className="border-t">
@@ -32,6 +32,10 @@ const FlipCard = () => {
                 </tr>
                 <tr className="border-t">
                   <td className="py-2 font-bold">Worst Case</td>
+                  <td className="text-right">O(n²)</td>
+                </tr>
+                <tr className="border-t">
+                  <td className="py-2 font-bold">Space Complexity</td>
                   <td className="text-right">O(n²)</td>
                 </tr>
               </tbody>
