@@ -1,4 +1,5 @@
 import "../index.css";
+import FlipCard from "./flipCard";
 
 interface TextBoxProps {
   text: string;
@@ -16,25 +17,7 @@ const TextBox = ({ text }: TextBoxProps) => {
             <p className="text-left text-white-800 self-start mb-4">{text}</p>
           </div>
 
-          <div className="w-[30%] h-[60%] bg-blue-600 text-white p-4 rounded-xl border-4 border-blue-800">
-            <h2 className="text-xl font-bold mb-4">Runtime Complexities</h2>
-            <table className="w-full text-left border-separate border-spacing-y-2">
-              <tbody>
-                <tr className="border-t border-orange-500">
-                  <td className="py-2 font-bold">Best Case</td>
-                  <td className="py-2 text-right">O(n)</td>
-                </tr>
-                <tr className="border-t border-orange-500">
-                  <td className="py-2 font-bold">Average Case</td>
-                  <td className="text-right">O(n²)</td>
-                </tr>
-                <tr className="border-t border-orange-500">
-                  <td className="py-2 font-bold">Worst Case</td>
-                  <td className="text-right">O(n²)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <FlipCard />
         </div>
       </div>
     </>

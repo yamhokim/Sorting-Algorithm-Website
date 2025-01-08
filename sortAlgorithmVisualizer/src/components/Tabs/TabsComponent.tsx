@@ -37,7 +37,7 @@ const TabsComponent = ({ items }) => {
                 <img
                   src={iconMap[item.title]}
                   alt={`${item.title} icon`}
-                  className="h-8 w-8 mx-auto" // Adjust the size of the icon
+                  className="h-8 w-7 mx-auto" // Adjust the size of the icon
                 />
               }
             </button>
