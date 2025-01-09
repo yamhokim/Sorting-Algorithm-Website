@@ -58,7 +58,7 @@ const Home = () => {
                   Yoonho Kim
                 </h1>
                 <p className="leading-relaxed mb-1 text-sm font-mono text-wrap px-2">
-                  EngSci Robo @ UofT | Insert ur info here
+                  EngSci Robotics & AI @ UofT | Insert ur info here
                 </p>
                 <p className="leading-relaxed mb-3 text-sm font-mono text-wrap px-2">
                   yoonho.luke.kim@gmail.com
