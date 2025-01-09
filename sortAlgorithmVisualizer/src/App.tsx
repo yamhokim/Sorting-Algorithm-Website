@@ -39,7 +39,7 @@ function App() {
   const [selectedButton, setSelectedButton] = useState(null);
 
   return (
-    <div className="container">
+    <div className="flex flex-row">
       <BrowserRouter>
         <SideBar
           selectedButton={selectedButton}

@@ -25,17 +25,13 @@ html {
   margin: 2.5em auto;
 }
 
-.container {
-  display: flex;
-}
-
 .sidebar {
   width: 20%;
   background-color: rgb(26, 45, 95);
   display: flex;
   flex-direction: column;
 }
-
+/*
 .main-content {
   width: 120%;
   background-color: rgb(23, 61, 105);
@@ -46,7 +42,8 @@ html {
   justify-content: flex-start;
   box-shadow: 2px 6px 6px 6px rgba(10, 38, 90, 0.151);
 }
-
+*/
+/*
 .bar-content {
   width: 100%;
   background-color: rgb(23, 61, 105);
@@ -54,7 +51,8 @@ html {
   flex-direction: column;
   align-items: center;
 }
-
+*/
+/*
 .title {
   background-color: rgb(14, 33, 82);
   border-radius: 24px 24px 0px 0px;
@@ -63,23 +61,25 @@ html {
   height: 20%;
   display: flex;
   justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  margin-top: 20px; /* Optional: Add margin to create space at the top */
-  box-shadow: 2px 6px 22px 22px inset rgba(2, 17, 44, 0.363);
-}
-
+/*align-items: center; /* Center content vertically */
+/*margin-top: 20px; /* Optional: Add margin to create space at the top */
+/*box-shadow: 2px 6px 22px 22px inset rgba(2, 17, 44, 0.363);
+}*/
+/*
 .array-container {
   background-color: rgb(26, 45, 95);
   width: 80%;
   height: 40vh;
   display: flex;
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */ /*
+  align-items: center; /* Center content vertically */ /*
   position: static;
 
   box-shadow: 2px 6px 6px 6px rgba(10, 38, 90, 0.151);
 }
+*/
 
+/*
 .array-bar {
   background-color: rgb(10, 39, 71);
   width: 90%;
@@ -89,7 +89,8 @@ html {
   border-radius: 24px 24px 24px 24px;
   box-shadow: 2px 6px 6px 6px rgba(10, 38, 90, 0.151);
 }
-
+*/
+/*
 .textbox {
   width: 70%;
   justify-content: center;
@@ -97,6 +98,8 @@ html {
   padding-top: 2%;
   border-radius: 1em;
 }
+
+*/
 
 .flipbox {
   background-color: rgb(26, 45, 95);
@@ -115,7 +118,7 @@ html {
   padding-top: 2%;
   border-radius: 1em;
 }
-
+/*
 .sliders {
   background-color: rgb(26, 45, 95);
   border-radius: 0px 0px 24px 24px;
@@ -123,10 +126,10 @@ html {
   height: 13vh;
   display: flex;
   justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  box-shadow: 2px 6px 6px 6px rgba(10, 38, 90, 0.151);
+/*align-items: center; /* Center content vertically */
+/* box-shadow: 2px 6px 6px 6px rgba(10, 38, 90, 0.151);
 }
-
+*/
 .card-container {
   perspective: 1000px; /* Enables 3D effect */
   width: 200px;
