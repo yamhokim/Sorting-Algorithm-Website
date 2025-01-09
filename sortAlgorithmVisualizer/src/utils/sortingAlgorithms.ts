@@ -29,6 +29,7 @@ export function handleSortingAlgorithm(name: string, ...args: any[]) {
       break;
     case "Merge Sort":
       console.log("Merge Sort");
+      mergeSort(args[0], args[1], args[2], args[3], args[4]);
       break;
     case "Quick Sort":
       console.log("Quick Sort");

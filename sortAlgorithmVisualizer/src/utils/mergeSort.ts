@@ -1,6 +1,32 @@
 import { SortCodeProps } from "../types/SortCodeTypes";
 import { ComplexityProps } from "../types/ComplexityTypes";
 
+function merge(left: number[], right: number[], origArr: number[]): number[] {
+  const sortedArr: number[] = [];
+
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      sortedArr.push(left.shift()!);
+    } else {
+      sortedArr.push(right.shift()!);
+    }
+  }
+  const updated_arr = [...sortedArr, ...left, ...right];
+  console.log(updated_arr);
+  return updated_arr;
+}
+
+function mergeSortAlgorithm(arr: number[], origArr: number[]) {
+  if (arr.length <= 1) return arr;
+
+  const mid = Math.floor(arr.length / 2);
+
+  const left: number[] = mergeSortAlgorithm(arr.slice(0, mid), origArr);
+  const right: number[] = mergeSortAlgorithm(arr.slice(mid), origArr);
+
+  return merge(left, right, origArr);
+}
+
 export function mergeSort(
   numarray: number[],
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
@@ -13,12 +39,14 @@ export function mergeSort(
     indices: [number, number];
   }[] = [];
   const arr = [...numarray];
+  console.log(arr);
 
-  const midpoint = arr.length / 2;
+  const merged_thingy = mergeSortAlgorithm(arr, arr);
+  console.log(merged_thingy);
 
-  if (arr.length < 2) {
-    return arr;
-  }
+  setNumArray(merged_thingy);
+
+  return;
 }
 
 export const mergeSortDescription: string = `Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.
