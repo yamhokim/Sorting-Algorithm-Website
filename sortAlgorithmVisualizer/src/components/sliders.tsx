@@ -36,7 +36,7 @@ function sliders({
             id="default-range"
             type="range"
             value={amountValue}
-            min="20"
+            min="10"
             max="60"
             step="1"
             className="w-10/12 h-2  bg-blue-400 rounded-lg appearance-none cursos-pointer dark:bg-gray-70 mb-6 shadow-inner ring-blue-700"

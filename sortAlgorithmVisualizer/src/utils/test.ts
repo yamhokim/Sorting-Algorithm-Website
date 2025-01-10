@@ -13,12 +13,10 @@ function merge(
       const value = left.shift()!;
       sortedArr.push(value);
       origArr[originalIndex++] = value; // Update the original array with the sorted value
-      console.log(`Updated original array: ${origArr}`);
     } else {
       const value = right.shift()!;
       sortedArr.push(value);
       origArr[originalIndex++] = value; // Update the original array with the sorted value
-      console.log(`Updated original array: ${origArr}`);
     }
   }
 
@@ -27,14 +25,12 @@ function merge(
     const value = left.shift()!;
     sortedArr.push(value);
     origArr[originalIndex++] = value; // Update the original array with the sorted value
-    console.log(`Updated original array: ${origArr}`);
   }
 
   while (right.length) {
     const value = right.shift()!;
     sortedArr.push(value);
     origArr[originalIndex++] = value; // Update the original array with the sorted value
-    console.log(`Updated original array: ${origArr}`);
   }
 
   console.log(`Updated original array: ${origArr}`);
@@ -63,7 +59,7 @@ function mergeSort(
 }
 
 // Example Usage
-const originalArray = [7, 2, 8, 10, 5, 3, 1, 9, 4, 6];
+const originalArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log("Original array:", originalArray);
 
 mergeSort(originalArray);

@@ -1,30 +1,85 @@
 import { SortCodeProps } from "../types/SortCodeTypes";
 import { ComplexityProps } from "../types/ComplexityTypes";
 
-function merge(left: number[], right: number[], origArr: number[]): number[] {
-  const sortedArr: number[] = [];
+let animations: {
+  type: "compare";
+  newArray: number[];
+  indices: number[];
+}[] = [];
 
-  while (left.length && right.length) {
-    if (left[0] < right[0]) {
-      sortedArr.push(left.shift()!);
-    } else {
-      sortedArr.push(right.shift()!);
-    }
+function createIndicesArray(start: number, count: number): number[] {
+  const indices = [];
+  for (let i = 0; i < count; i++) {
+    indices.push(start + i);
   }
-  const updated_arr = [...sortedArr, ...left, ...right];
-  console.log(updated_arr);
-  return updated_arr;
+  return indices;
 }
 
-function mergeSortAlgorithm(arr: number[], origArr: number[]) {
-  if (arr.length <= 1) return arr;
+function merge(
+  left: number[],
+  right: number[],
+  origArr: number[],
+  startIndex: number
+): number[] {
+  const sortedArr: number[] = [];
+  let originalIndex = startIndex; // Start at the beginning of the subarray
 
-  const mid = Math.floor(arr.length / 2);
+  // Merge and sort the subarray
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      const value = left.shift()!;
+      sortedArr.push(value);
+      origArr[originalIndex++] = value; // Update the original array with the sorted value
+    } else if (left[0] > right[0]) {
+      const value = right.shift()!;
+      sortedArr.push(value);
+      origArr[originalIndex++] = value; // Update the original array with the sorted value
+    }
+  }
 
-  const left: number[] = mergeSortAlgorithm(arr.slice(0, mid), origArr);
-  const right: number[] = mergeSortAlgorithm(arr.slice(mid), origArr);
+  // Handle remaining elements in `left` and `right`
+  while (left.length) {
+    const value = left.shift()!;
+    sortedArr.push(value);
+    origArr[originalIndex++] = value; // Update the original array with the sorted value
+  }
 
-  return merge(left, right, origArr);
+  while (right.length) {
+    const value = right.shift()!;
+    sortedArr.push(value);
+    origArr[originalIndex++] = value; // Update the original array with the sorted value
+  }
+
+  const arrCopy = [...origArr];
+  const highlightedIndices = createIndicesArray(startIndex, sortedArr.length);
+
+  animations.push({
+    type: "compare",
+    newArray: arrCopy,
+    indices: highlightedIndices,
+  });
+  return sortedArr;
+}
+
+function mergeSortAlgorithm(
+  origArr: number[],
+  setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
+  startIndex: number = 0,
+  endIndex: number = origArr.length
+): number[] {
+  if (endIndex - startIndex <= 1) {
+    return origArr.slice(startIndex, endIndex);
+  }
+
+  // Find the midpoint
+  const midIndex = Math.floor((startIndex + endIndex) / 2);
+
+  // Recursively sort left and right halves
+  const left = mergeSortAlgorithm(origArr, setNumArray, startIndex, midIndex);
+  const right = mergeSortAlgorithm(origArr, setNumArray, midIndex, endIndex);
+
+  // Merge the two sorted halves and update the original array
+  return merge(left, right, origArr, startIndex);
 }
 
 export function mergeSort(
@@ -34,19 +89,35 @@ export function mergeSort(
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
   stepDuration: number
 ): void {
-  const animations: {
-    type: "compare" | "swap";
-    indices: [number, number];
-  }[] = [];
   const arr = [...numarray];
-  console.log(arr);
 
-  const merged_thingy = mergeSortAlgorithm(arr, arr);
-  console.log(merged_thingy);
+  const sortedArr = mergeSortAlgorithm(arr, setNumArray);
+  const highlightedIndices = createIndicesArray(0, sortedArr.length);
+  animations.push({
+    type: "compare",
+    newArray: sortedArr,
+    indices: highlightedIndices,
+  });
 
-  setNumArray(merged_thingy);
+  animations.forEach((animation, i) => {
+    console.log(animation.indices);
+    setTimeout(() => {
+      setNumArray(() => {
+        const newArr = [...animation.newArray];
+        return newArr;
+      });
+      setActiveIndices(animation.indices);
+    }, i * stepDuration);
+  });
 
-  return;
+  // After all animations, clear highlights
+  setTimeout(() => {
+    setActiveIndices([]);
+    setSwappedIndices([]);
+  }, animations.length * stepDuration + stepDuration);
+
+  // Clear the animations array to avoid buildup
+  animations = [];
 }
 
 export const mergeSortDescription: string = `Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.
