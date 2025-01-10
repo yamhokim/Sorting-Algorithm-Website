@@ -28,7 +28,7 @@ function sliders({
         <div className="bg-blue-900 h-1rem w-4rem  rounded-md relative shadow-md my-8 ">
           <label
             htmlFor="default-range"
-            className="block text-lg font-medium text-blue-100 py-1 font-sans"
+            className="block text-xl font-semibold font-medium text-blue-100 py-1 font-sans"
           >
             Amount: {amountValue}
           </label>
@@ -43,10 +43,10 @@ function sliders({
             onChange={handleAmountChange}
           ></input>
         </div>
-        <div className="bg-blue-900 h-1rem w-4rem  rounded-md relative shadow-md my-8">
+        <div className="bg-blue-900 h-1rem w-4rem rounded-md relative shadow-md my-8">
           <label
             htmlFor="default-range"
-            className="block text-lg font-medium text-blue-100 py-1 font-sans"
+            className="block text-xl font-semibold font-medium text-blue-100 py-1 font-sans"
           >
             Speed : {speedValue}
           </label>

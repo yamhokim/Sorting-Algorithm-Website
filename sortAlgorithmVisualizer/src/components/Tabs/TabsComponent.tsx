@@ -20,9 +20,9 @@ const TabsComponent = ({ items }) => {
 
   return (
     <>
-      <div className="flex flex-col w-full">
-        <h1 className="neontext text-4xl font-mono font-semibold text-white-800 self-start ml-4 mb-4">
-          Code Implementations
+      <div className="flex flex-col w-[80%]">
+        <h1 className="neontext text-5xl font-mono font-semibold text-white-800 self-start ml-4 mb-4">
+          CODE IMPLEMENTATIONS
         </h1>
         <div className="bg-blue-700 p-3 rounded-xl flex justify-between items-center gap-x-2 font-bold text-white">
           {items.map((item, index) => (
@@ -45,7 +45,7 @@ const TabsComponent = ({ items }) => {
           ))}
         </div>
 
-        <div className="p-1 rounded-xl w-full flex-grow">
+        <div className="p-1 rounded-xl w-full flex-grow text-2xl">
           {items.map((item, index) => (
             <div
               className={`${selectedTab === index ? "" : "hidden"}`}

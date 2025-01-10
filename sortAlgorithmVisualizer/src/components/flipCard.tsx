@@ -22,15 +22,19 @@ const FlipCard = ({ complexities }: FlipCardProps) => {
       <div className="card">
         <div className="card-back">
           <div className="flipbox text-white p-4 rounded-xl">
-            <h2 className="neontext text-xl font-mono font-medium mb-1">
-              Complexity
+            <h2 className="neontext text-3xl font-mono font-medium font-semibold mb-2">
+              COMPLEXITY
             </h2>
             <table className="w-full text-left border-separate border-spacing-y-2">
               <tbody>
                 {Object.entries(complexities).map(([key, value]) => (
                   <tr className="border-t" key={key}>
-                    <td className="py-2 font-bold font-mono">{key}:</td>
-                    <td className="py-2 text-right font-mono">{value}</td>
+                    <td className="py-4 font-bold font-mono text-2xl">
+                      {key}:
+                    </td>
+                    <td className="py-4 text-right font-mono text-2xl">
+                      {value}
+                    </td>
                   </tr>
                 ))}
               </tbody>

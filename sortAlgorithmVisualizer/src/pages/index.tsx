@@ -1,4 +1,8 @@
 import React from "react";
+import sahel_icon from "../assets/images/sahel.png";
+import yoonho_icon from "../assets/images/calvin_hobbes.jpg";
+import github_icon from "../assets/images/github-logo.png";
+import linkedin_icon from "../assets/images/linkedin-logo.png";
 
 const Home = () => {
   return (
@@ -50,17 +54,17 @@ const Home = () => {
               <img
                 className="lg:w-4/12 md:w-3/5 w-4/6 mb-6 object-cover object-center rounded-full"
                 alt="Yoonho"
-                src="yoonho.png"
+                src={yoonho_icon}
               />
               <div className="text-center w-full">
                 <h1 className="title-font font-mono text-2xl mb-2 font-medium text-white">
                   Yoonho Kim
                 </h1>
                 <p className="leading-relaxed mb-1 text-sm font-mono px-2">
-                  EngSci Robo @ UofT | Insert your info here
+                  EngSci Robotics & AI @ UofT
                 </p>
                 <p className="leading-relaxed mb-3 text-sm font-mono px-2">
-                  yoonhoemail@gmail.com
+                  yoonho.luke.kim@gmail.com
                 </p>
                 <div className="flex justify-center gap-5">
                   <a
@@ -72,7 +76,7 @@ const Home = () => {
                     <img
                       className="relative z-10 w-8 h-8 transition-all duration-300 group-hover:fill-blue-400"
                       alt="linkedin"
-                      src="linkedin-logo.png"
+                      src={linkedin_icon}
                     />
                     <div className="absolute top-full left-0 w-full h-full rounded-full bg-blue-400 z-0 transition-all duration-500 group-hover:top-0"></div>
                   </a>
@@ -85,7 +89,7 @@ const Home = () => {
                     <img
                       className="relative z-10 w-8 h-8 transition-all duration-300 group-hover:fill-orange-400"
                       alt="github"
-                      src="github-logo.png"
+                      src={github_icon}
                     />
                     <div className="absolute top-full left-0 w-full h-full rounded-full bg-orange-400 z-0 transition-all duration-500 group-hover:top-0"></div>
                   </a>
@@ -98,15 +102,14 @@ const Home = () => {
               <img
                 className="lg:w-4/12 md:w-3/5 w-4/6 mb-6 rounded-full"
                 alt="Sahel"
-                src="sahel.png"
+                src={sahel_icon}
               />
               <div className="text-center w-full">
                 <h1 className="title-font font-mono text-2xl mb-2 font-medium text-white">
                   Sheikh Sahel
                 </h1>
                 <p className="leading-relaxed mb-1 text-sm font-mono px-2">
-                  Information Technology @ York University | Insert your info
-                  here
+                  Information Technology @ York University
                 </p>
                 <p className="leading-relaxed mb-3 text-sm font-mono px-2">
                   jpsahelsk@gmail.com
@@ -121,7 +124,7 @@ const Home = () => {
                     <img
                       className="relative z-10 w-8 h-8 transition-all duration-300 group-hover:fill-blue-400"
                       alt="linkedin"
-                      src="linkedin-logo.png"
+                      src={linkedin_icon}
                     />
                     <div className="absolute top-full left-0 w-full h-full rounded-full bg-blue-400 z-0 transition-all duration-500 group-hover:top-0"></div>
                   </a>
@@ -134,7 +137,7 @@ const Home = () => {
                     <img
                       className="relative z-10 w-8 h-8 transition-all duration-300 group-hover:fill-orange-400"
                       alt="github"
-                      src="github-logo.png"
+                      src={github_icon}
                     />
                     <div className="absolute top-full left-0 w-full h-full rounded-full bg-orange-400 z-0 transition-all duration-500 group-hover:top-0"></div>
                   </a>
