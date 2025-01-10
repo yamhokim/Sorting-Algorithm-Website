@@ -1,19 +1,88 @@
 import { SortCodeProps } from "../types/SortCodeTypes";
 import { ComplexityProps } from "../types/ComplexityTypes";
 
+/**
+ * Quick Sort Visualization
+ * 
+ * @param numArray - initial array of numbers
+ * @param setNumArray - React state setter for updating the array
+ * @param setActiveIndices - React state setter for highlighting compared indices
+ * @param setSwappedIndices - React state setter for highlighting swapped indices
+ * @param stepDuration - delay (ms) between each animation step
+ */
 export function quickSort(
-  numarray: number[],
+  numArray: number[],
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
   setActiveIndices: React.Dispatch<React.SetStateAction<number[]>>,
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
+  
   stepDuration: number
 ): void {
+
   const animations: {
     type: "compare" | "swap";
     indices: [number, number];
   }[] = [];
-  const arr = [...numarray];
+
+
+  const arr = [...numArray];
+
+
+  function quickSortAlg(start: number, end: number): void {
+    if (start >= end) return;
+
+
+    const pivotIndex = end;
+    const pivotValue = arr[pivotIndex];
+
+    let boundary = start;
+
+    for (let i = start; i < end; i++) {
+      animations.push({ type: "compare", indices: [i, pivotIndex] });
+      if (arr[i] < pivotValue) {
+        animations.push({ type: "swap", indices: [i, boundary] });
+        [arr[i], arr[boundary]] = [arr[boundary], arr[i]];
+        boundary++;
+      }
+    }
+    animations.push({ type: "swap", indices: [boundary, pivotIndex] });
+    [arr[boundary], arr[pivotIndex]] = [arr[pivotIndex], arr[boundary]];
+    quickSortAlg(start, boundary - 1);
+    quickSortAlg(boundary + 1, end);
+  }
+
+
+  quickSortAlg(0, arr.length - 1);
+
+
+  animations.forEach((animation, i) => {
+    setTimeout(() => {
+      if (animation.type === "compare") {
+
+        setActiveIndices(animation.indices);
+        setSwappedIndices([]);
+      } else if (animation.type === "swap") {
+
+        setNumArray((prevArray) => {
+          const newArr = [...prevArray];
+          const [indexA, indexB] = animation.indices;
+          [newArr[indexA], newArr[indexB]] = [newArr[indexB], newArr[indexA]];
+          return newArr;
+        });
+        setActiveIndices([]);
+        setSwappedIndices(animation.indices);
+      }
+    }, i * stepDuration);
+  });
+
+
+  setTimeout(() => {
+    setActiveIndices([]);
+    setSwappedIndices([]);
+  }, animations.length * stepDuration + stepDuration);
 }
+
+
 
 export const quickSortDescription: string = `Quick Sort is a sorting algorithm based on splitting the data structure in smaller partitions and sort them recursively until the data structure is sorted.
 

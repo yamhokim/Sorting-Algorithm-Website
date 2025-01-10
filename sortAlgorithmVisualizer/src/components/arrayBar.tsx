@@ -23,7 +23,6 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
   const [minimumIndex, setMinimumIndex] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number[]>([]);
   const [barWidth, setBarWidth] = useState<number>(10);
-  const [buttonState, setButtonState] = useState<boolean>(false);
   // Example speed factor (you could pass this in as a prop or from a context)
   // 1 means normal speed, 3 means 3x faster, etc.
   const speedFactor = speedValue; // or 2 or 3, etc.

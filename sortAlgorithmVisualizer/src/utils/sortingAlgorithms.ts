@@ -32,6 +32,7 @@ export function handleSortingAlgorithm(name: string, ...args: any[]) {
       break;
     case "Quick Sort":
       console.log("Quick Sort");
+      quickSort(args[0], args[1], args[2], args[3], args[4])
       break;
     case "Heap Sort":
       console.log("Heap Sort");
