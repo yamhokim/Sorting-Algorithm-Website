@@ -8,11 +8,9 @@ import { heapSort } from "./heapSort";
 export function handleSortingAlgorithm(name: string, ...args: any[]) {
   switch (name) {
     case "Bubble Sort":
-      console.log("Bubble Sort");
       bubbleSort(args[0], args[1], args[2], args[3], args[4]);
       break;
     case "Selection Sort":
-      console.log("Selection Sort");
       selectionSort(
         args[0],
         args[1],
@@ -24,18 +22,14 @@ export function handleSortingAlgorithm(name: string, ...args: any[]) {
       );
       break;
     case "Insertion Sort":
-      console.log("Insertion Sort");
       insertionSort(args[0], args[1], args[2], args[3], args[4]);
       break;
     case "Merge Sort":
-      console.log("Merge Sort");
       mergeSort(args[0], args[1], args[2], args[3], args[4]);
       break;
     case "Quick Sort":
-      console.log("Quick Sort");
       break;
     case "Heap Sort":
-      console.log("Heap Sort");
       heapSort(args[0], args[1], args[2], args[3], args[4], args[7]);
       break;
     default:
