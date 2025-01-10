@@ -17,7 +17,7 @@ function SideBar({ selectedButton, setSelectedButton }) {
   //a hook is a function that lets you use react features like state and others without writing a class.
 
   return (
-    <div className="">
+    <div>
       <SortingButtonGroup
         selectedButton={selectedButton}
         setSelectedButton={setSelectedButton}
