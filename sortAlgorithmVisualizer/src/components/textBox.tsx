@@ -22,7 +22,7 @@ const TextBox = ({ text, complexities }: TextBoxProps) => {
               Description
             </h1>
             <p
-              className="text-left text-xl font-bold text-grey-300 self-start mb-4 ml-20 font-mono"
+              className="text-left text-2xl font-bold text-grey-300 self-start mb-4 ml-20 font-mono"
               dangerouslySetInnerHTML={formatText(text)}
             />
           </div>
