@@ -18,11 +18,11 @@ const TextBox = ({ text, complexities }: TextBoxProps) => {
       <div className="flex flex-col w-full">
         <div className="flex w-full gap-4 px-4">
           <div className="w-[70%]">
-            <h1 className="neontext text-5xl font-bold text-white-800 text-left mb-4">
+            <h1 className="neontext text-4xl font-mono font-medium text-grey-300 text-left mb-4 ml-20">
               Description
             </h1>
             <p
-              className="text-left text-xl font-bold text-white-800 self-start mb-4"
+              className="text-left text-2xl font-bold text-grey-300 self-start mb-4 ml-20 font-mono"
               dangerouslySetInnerHTML={formatText(text)}
             />
           </div>

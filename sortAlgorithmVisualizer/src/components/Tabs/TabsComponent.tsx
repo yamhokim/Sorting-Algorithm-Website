@@ -20,8 +20,8 @@ const TabsComponent = ({ items }) => {
 
   return (
     <>
-      <div className="flex flex-col w-[70%]">
-        <h1 className="neontext text-5xl font-bold text-white-800 self-start ml-4 mb-4">
+      <div className="flex flex-col w-full">
+        <h1 className="neontext text-4xl font-mono font-semibold text-white-800 self-start ml-4 mb-4">
           Code Implementations
         </h1>
         <div className="bg-blue-700 p-3 rounded-xl flex justify-between items-center gap-x-2 font-bold text-white">

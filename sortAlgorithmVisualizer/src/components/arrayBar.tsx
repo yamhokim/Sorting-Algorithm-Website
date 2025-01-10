@@ -24,7 +24,6 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
   const [currentIndex, setCurrentIndex] = useState<number[]>([]);
   const [maxIndices, setMaxIndices] = useState<number[]>([]);
   const [barWidth, setBarWidth] = useState<number>(10);
-  const [buttonState, setButtonState] = useState<boolean>(false);
   // Example speed factor (you could pass this in as a prop or from a context)
   // 1 means normal speed, 3 means 3x faster, etc.
   const speedFactor = speedValue; // or 2 or 3, etc.
@@ -56,7 +55,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
 
   return (
     <>
-      <div className="array-bar flex items-end justify-center h-full">
+      <div className="bg-[#0A2747] w-4/5 h-96 flex items-end justify-center mt-11 mb-4 rounded-3xl shadow-inner-lg overflow-hidden">
         {numarray.map((heightnum, index) => {
           let barColor = "bg-blue-500";
 
@@ -86,7 +85,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
         })}
       </div>
 
-      <div className="mt-4 absolute translate-y-40">
+      <div className="mb-1">
         <button
           className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2"
           onClick={() =>

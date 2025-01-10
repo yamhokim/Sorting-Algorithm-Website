@@ -7,18 +7,19 @@ const HomeButton = ({ label, onClick, isSelected }) => {
   return (
     <button
       onClick={onClick}
-      className={`w-16 bg-blue-700 rounded-full h-16 px-3 flex items-center justify-center sm:
-            ${
-              isSelected
-                ? "border-blue-900 bg-blue-900"
-                : "border-blue-700 shadow-lg hover:bg-blue-800 active:bg-blue-900"
-            }`}
+      className={`w-16 h-16 flex items-center justify-center relative overflow-hidden rounded-full ${
+        isSelected
+          ? "border-blue-900 bg-blue-900"
+          : "border-blue-700 shadow-lg bg-blue-700 hover:bg-blue-800 active:bg-blue-900"
+      } group transition-all duration-300`}
     >
       <img
-        src={home_icon}
+        src={home_icon} // replace with your actual image path
         alt="home icon"
-        className="h-[70%] w-auto max-h-full max-w-full object-contain"
+        className="relative z-10 h-[70%] w-auto max-h-full max-w-full object-contain"
       />
+      {/* Glowing and filling effect */}
+      <div className="absolute top-full left-0 w-full h-full rounded-full bg-blue-400 z-0 transition-all duration-500 group-hover:top-0"></div>
     </button>
   );
 };
@@ -27,14 +28,17 @@ const SortingButton = ({ label, onClick, isSelected }) => {
   return (
     <button
       onClick={onClick}
-      className={`bg-blue-700 rounded-lg w-1rem h-16 px-3 flex items-center justify-center text-sm
-            ${
-              isSelected
-                ? "border-blue-900 bg-blue-900"
-                : "border-blue-700 shadow-lg hover:bg-blue-800 active:bg-blue-900"
-            }`}
+      className={`relative overflow-hidden bg-blue-700 rounded-lg w-2rem h-14 px-3 flex items-center justify-center text-sm font-medium
+        ${
+          isSelected
+            ? "border-blue-900 bg-blue-900"
+            : "border-blue-700 shadow-lg hover:bg-blue-800 active:bg-blue-900"
+        } group transition-all duration-300`}
     >
-      {label}
+      {/* Label */}
+      <span className="relative z-10">{label}</span>
+      {/* Glowing and filling effect */}
+      <div className="absolute top-full left-0 w-full h-full bg-blue-400 z-0 transition-all duration-500 group-hover:top-0"></div>
     </button>
   );
 };

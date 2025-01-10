@@ -44,11 +44,11 @@ const SortPage: React.FC<SortPageProp> = ({
 
   return (
     <>
-      <div className="container">
-        <div className="main-content">
-          <div className="bar-content">
+      <div className="w-full">
+        <div className="w-full bg-[#173d69]">
+          <div className="w-full flex flex-col bg-[#173d69] justify-start items-center shadow-inner">
             <Header title={name} />
-            <div className="array-container shadow-inner">
+            <div className="shadow-inner-lg bg-[#2A2D5F] w-4/5 h-96 flex flex-col justify-start items-center">
               <ArrayBar
                 name={name}
                 amountValue={amountValue}
@@ -62,10 +62,10 @@ const SortPage: React.FC<SortPageProp> = ({
               setSpeedValue={setSpeedValue}
             />
           </div>
-          <div className="textbox flex-grow">
+          <div className="w-full flex flex-col justify-center my-16">
             <TextBox text={text} complexities={complexities} />
           </div>
-          <div className="textbox flex-grow">
+          <div className="w-4/5 flex flex-col justify-center mx-20">
             <TabsComponent items={items} />
           </div>
         </div>
