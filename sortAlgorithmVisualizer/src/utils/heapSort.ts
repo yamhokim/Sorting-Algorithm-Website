@@ -1,18 +1,118 @@
 import { SortCodeProps } from "../types/SortCodeTypes";
 import { ComplexityProps } from "../types/ComplexityTypes";
 
+const animations: {
+  type: "compare" | "swap" | "max";
+  indices: [number, number];
+}[] = [];
+
+function swap(
+  array: number[],
+  index1: number,
+  index2: number,
+  type: "swap" | "max"
+) {
+  [array[index1], array[index2]] = [array[index2], array[index1]];
+  if (type === "swap") {
+    animations.push({ type: "swap", indices: [index1, index2] });
+  } else {
+    animations.push({ type: "max", indices: [index1, index2] });
+  }
+}
+
+function heapify(array: number[], index: number, length = array.length) {
+  let largest = index;
+  const left = index * 2 + 1;
+  const right = index * 2 + 2;
+
+  // compare element to its left and right child
+  if (left < length && array[left] > array[largest]) {
+    animations.push({ type: "compare", indices: [left, largest] });
+    largest = left;
+  }
+  if (right < length && array[right] > array[largest]) {
+    animations.push({ type: "compare", indices: [right, largest] });
+    largest = right;
+  }
+
+  // if the parent node isn't the largest element, swap it with the largest child
+  if (largest !== index) {
+    swap(array, index, largest, "swap");
+
+    // continue to heapify down the heap
+    heapify(array, largest, length);
+  }
+
+  return array;
+}
+
+function heapSortAlgorithm(array: number[]) {
+  // max heapify the array
+  for (let i = Math.floor(array.length / 2); i >= 0; i--) {
+    heapify(array, i);
+  }
+
+  // work backwards, moving max elements to the end of the array
+  for (let i = array.length - 1; i > 0; i--) {
+    // max element of unsorted section of array is at index 0, swap with element at last index in unsorted array
+    swap(array, 0, i, "max");
+
+    // re-heapify array, from beginning to the end of the unsorted section
+    heapify(array, 0, i);
+  }
+}
+
 export function heapSort(
   numarray: number[],
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
   setActiveIndices: React.Dispatch<React.SetStateAction<number[]>>,
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
-  stepDuration: number
+  stepDuration: number,
+  setMaxIndices: React.Dispatch<React.SetStateAction<number[]>>
 ): void {
-  const animations: {
-    type: "compare" | "swap";
-    indices: [number, number];
-  }[] = [];
   const arr = [...numarray];
+
+  heapSortAlgorithm(arr);
+
+  animations.forEach((animation, i) => {
+    setTimeout(() => {
+      if (animation.type === "compare") {
+        // Highlight these bars in green
+        setActiveIndices(animation.indices);
+        setSwappedIndices([]);
+        setMaxIndices([]);
+      } else if (animation.type === "swap") {
+        // Perform the swap in state, highlight in red
+        setNumArray((prevArray) => {
+          const newArr = [...prevArray];
+          const [indexA, indexB] = animation.indices;
+          [newArr[indexA], newArr[indexB]] = [newArr[indexB], newArr[indexA]];
+          return newArr;
+        });
+        setActiveIndices([]);
+        setMaxIndices([]);
+        setSwappedIndices(animation.indices);
+      } else if (animation.type === "max") {
+        // Perform the swap in state, highlight in red
+        setNumArray((prevArray) => {
+          const newArr = [...prevArray];
+          const [indexA, indexB] = animation.indices;
+          [newArr[indexA], newArr[indexB]] = [newArr[indexB], newArr[indexA]];
+          return newArr;
+        });
+        setActiveIndices([]);
+        setSwappedIndices([]);
+        setMaxIndices(animation.indices);
+      }
+    }, i * stepDuration);
+  });
+
+  // After all animations, clear highlights
+  setTimeout(() => {
+    setActiveIndices([]);
+    setSwappedIndices([]);
+    setMaxIndices([]);
+  }, animations.length * stepDuration + stepDuration);
 }
 
 export const heapSortDescription: string = `Heap Sort is an in-place iterative sorting algorithm based on auxiliary data structures called heap. It's less efficient than algorithm with the same time complexity and it's not suitable for data structures with few elements.

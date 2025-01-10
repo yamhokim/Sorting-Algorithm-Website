@@ -36,6 +36,7 @@ export function handleSortingAlgorithm(name: string, ...args: any[]) {
       break;
     case "Heap Sort":
       console.log("Heap Sort");
+      heapSort(args[0], args[1], args[2], args[3], args[4], args[7]);
       break;
     default:
       console.error(`Algorithm ${name} not found.`);

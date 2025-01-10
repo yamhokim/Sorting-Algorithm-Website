@@ -22,6 +22,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
   const [swappedIndices, setSwappedIndices] = useState<number[]>([]);
   const [minimumIndex, setMinimumIndex] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number[]>([]);
+  const [maxIndices, setMaxIndices] = useState<number[]>([]);
   const [barWidth, setBarWidth] = useState<number>(10);
   const [buttonState, setButtonState] = useState<boolean>(false);
   // Example speed factor (you could pass this in as a prop or from a context)
@@ -65,7 +66,7 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
           if (swappedIndices.includes(index)) {
             barColor = "bg-red-500";
           }
-          if (minimumIndex.includes(index)) {
+          if (minimumIndex.includes(index) || maxIndices.includes(index)) {
             barColor = "bg-purple-500";
           }
           if (currentIndex.includes(index)) {
@@ -97,7 +98,8 @@ function ArrayBar({ name, amountValue, speedValue }: ArrayBarProps) {
               setSwappedIndices,
               stepDuration,
               setMinimumIndex,
-              setCurrentIndex
+              setCurrentIndex,
+              setMaxIndices
             )
           }
         >
