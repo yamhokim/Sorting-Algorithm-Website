@@ -13,7 +13,7 @@ const Home = () => {
           {/* Title */}
           <div className="bg-blue-900 rounded-t-xl shadow-inner-lg shadow-blue-950">
             <p className="text-cyan-200 font-mono text-3xl my-4 text-center">
-              React Sorting Algorithm Visualizer
+              SortGallery - React Sorting Algorithm Visualizer
             </p>
           </div>
 
@@ -23,9 +23,9 @@ const Home = () => {
               Overview
             </p>
             <p className="text-gray-200 font-mono text-2xl font-bold mb-4 text-wrap mx-4">
-              Welcome to our Sorting Algorithm Visualizer! This interactive tool
-              demonstrates the inner workings of some of the most popular
-              sorting algorithms, including:
+              Welcome to SortGallery, our sorting algorithm visualizer website!
+              This interactive tool demonstrates the inner workings of some of
+              the most popular sorting algorithms, including:
             </p>
 
             <ul className="list-disc list-inside space-y-2 text-gray-200 font-mono mx-8 mb-4">

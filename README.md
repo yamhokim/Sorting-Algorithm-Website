@@ -1,4 +1,4 @@
-# Sorting Algorithm Visualizer
+# SortGallery - Sorting Algorithm Visualizer
 
 ## Demo
 
