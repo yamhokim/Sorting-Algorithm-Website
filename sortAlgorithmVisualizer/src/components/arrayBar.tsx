@@ -33,7 +33,6 @@ function ArrayBar({
   const [minimumIndex, setMinimumIndex] = useState<number[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number[]>([]);
   const [maxIndices, setMaxIndices] = useState<number[]>([]);
-  const [barWidth, setBarWidth] = useState<number>(10);
   const [divWidth, setDivWidth] = useState(0);
 
   const speedFactor = speedValue;
@@ -46,7 +45,7 @@ function ArrayBar({
     setSpeedValue(Number(event.target.value));
   };
 
-  const divRef = useRef(null);
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (divRef.current) {
@@ -54,11 +53,6 @@ function ArrayBar({
       setDivWidth(width);
     }
   }, []);
-
-  useEffect(() => {
-    const newBarWidth = Math.max(2, 500 / amountValue);
-    setBarWidth(newBarWidth);
-  }, [amountValue]);
 
   const baseStepDuration = 500;
   const stepDuration = baseStepDuration / speedFactor;

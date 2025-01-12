@@ -1,4 +1,3 @@
-import React from "react";
 import sahel_icon from "../assets/images/sahel.png";
 import yoonho_icon from "../assets/images/calvin_hobbes.jpg";
 import github_icon from "../assets/images/github-logo.png";
