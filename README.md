@@ -2,7 +2,7 @@
 
 ## Demo
 
-(ADD SOMETHING HERE)
+[Link to Demo](https://sort-gallery.netlify.app/)
 
 ## Overview
 
