@@ -68,14 +68,15 @@ export function heapSort(
   setActiveIndices: React.Dispatch<React.SetStateAction<number[]>>,
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
   stepDuration: number,
-  setMaxIndices: React.Dispatch<React.SetStateAction<number[]>>
+  setMaxIndices: React.Dispatch<React.SetStateAction<number[]>>,
+  timeoutRefs: ReturnType<typeof setTimeout>[]
 ): void {
   const arr = [...numarray];
 
   heapSortAlgorithm(arr);
 
   animations.forEach((animation, i) => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       if (animation.type === "compare") {
         // Highlight these bars in green
         setActiveIndices(animation.indices);
@@ -105,6 +106,7 @@ export function heapSort(
         setMaxIndices(animation.indices);
       }
     }, i * stepDuration);
+    timeoutRefs.current.push(timeoutId);
   });
 
   // After all animations, clear highlights

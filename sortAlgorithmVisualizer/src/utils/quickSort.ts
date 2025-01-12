@@ -3,7 +3,7 @@ import { ComplexityProps } from "../types/ComplexityTypes";
 
 /**
  * Quick Sort Visualization
- * 
+ *
  * @param numArray - initial array of numbers
  * @param setNumArray - React state setter for updating the array
  * @param setActiveIndices - React state setter for highlighting compared indices
@@ -15,22 +15,18 @@ export function quickSort(
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
   setActiveIndices: React.Dispatch<React.SetStateAction<number[]>>,
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
-  
-  stepDuration: number
+  stepDuration: number,
+  timeoutRefs: ReturnType<typeof setTimeout>[]
 ): void {
-
   const animations: {
     type: "compare" | "swap";
     indices: [number, number];
   }[] = [];
 
-
   const arr = [...numArray];
-
 
   function quickSortAlg(start: number, end: number): void {
     if (start >= end) return;
-
 
     const pivotIndex = end;
     const pivotValue = arr[pivotIndex];
@@ -51,18 +47,14 @@ export function quickSort(
     quickSortAlg(boundary + 1, end);
   }
 
-
   quickSortAlg(0, arr.length - 1);
 
-
   animations.forEach((animation, i) => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       if (animation.type === "compare") {
-
         setActiveIndices(animation.indices);
         setSwappedIndices([]);
       } else if (animation.type === "swap") {
-
         setNumArray((prevArray) => {
           const newArr = [...prevArray];
           const [indexA, indexB] = animation.indices;
@@ -73,16 +65,15 @@ export function quickSort(
         setSwappedIndices(animation.indices);
       }
     }, i * stepDuration);
-  });
 
+    timeoutRefs.current.push(timeoutId);
+  });
 
   setTimeout(() => {
     setActiveIndices([]);
     setSwappedIndices([]);
   }, animations.length * stepDuration + stepDuration);
 }
-
-
 
 export const quickSortDescription: string = `Quick Sort is a sorting algorithm based on splitting the data structure in smaller partitions and sort them recursively until the data structure is sorted.
 

@@ -32,6 +32,8 @@ function ArrayBar({
   const speedFactor = speedValue;
   const baseStepDuration = 500;
   const stepDuration = baseStepDuration / speedFactor;
+  const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const divRef = useRef<HTMLDivElement>(null);
 
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAmountValue(Number(event.target.value));
@@ -44,6 +46,13 @@ function ArrayBar({
   const handleSortToggle = () => {
     if (isSorting) {
       setIsSorting(false);
+      timeoutRefs.current.forEach(clearTimeout);
+      timeoutRefs.current = [];
+      setActiveIndices([]);
+      setSwappedIndices([]);
+      setMinimumIndex([]);
+      setCurrentIndex([]);
+      setMaxIndices([]);
     } else {
       handleSortingAlgorithm(
         name,
@@ -54,13 +63,12 @@ function ArrayBar({
         stepDuration,
         setMinimumIndex,
         setCurrentIndex,
-        setMaxIndices
+        setMaxIndices,
+        timeoutRefs
       );
       setIsSorting(true);
     }
   };
-
-  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (divRef.current) {
@@ -152,19 +160,10 @@ function ArrayBar({
               ? "bg-gray-500 cursor-not-allowed"
               : "bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
           }`}
-          onClick={() =>
-            handleSortingAlgorithm(
-              name,
-              numarray,
-              setNumArray,
-              setActiveIndices,
-              setSwappedIndices,
-              stepDuration,
-              setMinimumIndex,
-              setCurrentIndex,
-              setMaxIndices
-            )
-          }
+          onClick={() => {
+            const shuffledArray = shuffleArray([...numarray]);
+            setNumArray(shuffledArray);
+          }}
           disabled={isSorting}
         >
           <FaShuffle />

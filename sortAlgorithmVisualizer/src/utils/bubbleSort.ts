@@ -6,7 +6,8 @@ export function bubbleSort(
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
   setActiveIndices: React.Dispatch<React.SetStateAction<number[]>>,
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
-  stepDuration: number
+  stepDuration: number,
+  timeoutRefs: ReturnType<typeof setTimeout>[]
 ): void {
   const animations: {
     type: "compare" | "swap";
@@ -29,7 +30,7 @@ export function bubbleSort(
 
   // Replay each step, scaled by stepDuration
   animations.forEach((animation, i) => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       if (animation.type === "compare") {
         // Highlight these bars in green
         setActiveIndices(animation.indices);
@@ -45,6 +46,8 @@ export function bubbleSort(
         setSwappedIndices(animation.indices);
       }
     }, i * stepDuration);
+
+    timeoutRefs.current.push(timeoutId);
   });
 
   // After all animations, clear highlights

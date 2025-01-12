@@ -8,7 +8,8 @@ export function selectionSort(
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
   stepDuration: number,
   setMinimumIndex: React.Dispatch<React.SetStateAction<number[]>>,
-  setCurrentIndex: React.Dispatch<React.SetStateAction<number[]>>
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number[]>>,
+  timeoutRefs: ReturnType<typeof setTimeout>[]
 ): void {
   const animations: {
     type: "current" | "swap" | "minimum" | "active";
@@ -37,7 +38,7 @@ export function selectionSort(
 
   // Replay each step, scaled by stepDuration
   animations.forEach((animation, i) => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       if (animation.type === "active") {
         // Highlight these bars in green
         const activeIndex = [animation.indices[0]];
@@ -65,6 +66,8 @@ export function selectionSort(
         setSwappedIndices(animation.indices);
       }
     }, i * stepDuration);
+
+    timeoutRefs.current.push(timeoutId);
   });
 
   // After all animations, clear highlights

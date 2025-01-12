@@ -87,7 +87,8 @@ export function mergeSort(
   setNumArray: React.Dispatch<React.SetStateAction<number[]>>,
   setActiveIndices: React.Dispatch<React.SetStateAction<number[]>>,
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
-  stepDuration: number
+  stepDuration: number,
+  timeoutRefs: ReturnType<typeof setTimeout>[]
 ): void {
   const arr = [...numarray];
 
@@ -100,14 +101,15 @@ export function mergeSort(
   });
 
   animations.forEach((animation, i) => {
-    console.log(animation.indices);
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setNumArray(() => {
         const newArr = [...animation.newArray];
         return newArr;
       });
       setActiveIndices(animation.indices);
     }, i * stepDuration);
+
+    timeoutRefs.current.push(timeoutId);
   });
 
   // After all animations, clear highlights
