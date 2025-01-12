@@ -6,7 +6,7 @@
 
 ## Overview
 
-The Sorting Algorithm Visualizer is a web application built with React and Tailwind CSS to help users understand and visualize various sorting algorithms in an interactive and engaging way. The visualizer supports the following sorting algorithms:
+SortGallery - Sorting Algorithm Visualizer is a web application built with React and Tailwind CSS to help users understand and visualize various sorting algorithms in an interactive and engaging way. The visualizer supports the following sorting algorithms:
 
 - Selection Sort
 - Insertion Sort
