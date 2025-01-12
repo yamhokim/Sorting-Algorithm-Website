@@ -1,7 +1,6 @@
 import "../index.css";
 import Header from "../components/header";
 import ArrayBar from "../components/arrayBar";
-import Sliders from "../components/sliders";
 import TextBox from "../components/textBox";
 import TabsComponent from "../components/Tabs/TabsComponent";
 import { SortCodeProps } from "../types/SortCodeTypes";
@@ -26,7 +25,7 @@ const SortPage: React.FC<SortPageProp> = ({
   const [amountValue, setAmountValue] = useState<number>(10);
   const [speedValue, setSpeedValue] = useState<number | number>(1);
 
-  const items = Object.entries(code).map(([title, snippet], _) => ({
+  const items = Object.entries(code).map(([title, snippet]) => ({
     title,
     content: (
       <div>
@@ -44,28 +43,24 @@ const SortPage: React.FC<SortPageProp> = ({
 
   return (
     <>
-      <div className="w-full">
-        <div className="w-full bg-gray-900">
-          <div className="w-full h-full flex flex-col bg-gray-900 justify-start items-center shadow-inner">
+      <div className="w-full bg-gray-900">
+        <div className="w-full h-[40%] bg-gray-900">
+          <div className="w-full h-full flex flex-col bg-gray-900 items-center shadow-inner">
             <Header title={name.toUpperCase()} />
-            <div className="shadow-inner-lg bg-[#2A2D5F] w-4/5 h-96 flex flex-col justify-start items-center">
+            <div className="shadow-inner-lg rounded-b-xl bg-[#2A2D5F] w-4/5 h-[550px] overflow-hidden flex flex-col justify-start items-center">
               <ArrayBar
                 name={name}
                 amountValue={amountValue}
+                setAmountValue={setAmountValue}
                 speedValue={speedValue}
+                setSpeedValue={setSpeedValue}
               />
             </div>
-            <Sliders
-              amountValue={amountValue}
-              setAmountValue={setAmountValue}
-              speedValue={speedValue}
-              setSpeedValue={setSpeedValue}
-            />
           </div>
           <div className="w-full flex flex-col justify-center my-16">
             <TextBox text={text} complexities={complexities} />
           </div>
-          <div className="w-4/5 flex flex-col justify-center mx-20">
+          <div className="w-3/4 flex flex-col justify-center mx-20">
             <TabsComponent items={items} />
           </div>
         </div>
