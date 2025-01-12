@@ -1,8 +1,7 @@
 import "./index.css";
-import SideBar from "./components/sideBar";
+import SideBar from "./components/SideBar/sideBar";
 import Home from "./pages";
 import SortPage from "./pages/sortPage";
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   bubbleSortCode,
@@ -36,15 +35,10 @@ import {
 } from "./utils/heapSort";
 
 function App() {
-  const [selectedButton, setSelectedButton] = useState(null);
-
   return (
     <div className="flex flex-row">
       <BrowserRouter>
-        <SideBar
-          selectedButton={selectedButton}
-          setSelectedButton={setSelectedButton}
-        />
+        <SideBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
