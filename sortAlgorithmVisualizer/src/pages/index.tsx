@@ -18,17 +18,16 @@ const Home = () => {
 
         {/* Overview */}
         <div className="bg-gray-800  shadow-lg shadow-black p-6">
-          <p className="text-gray-300 font-mono text-3xl mb-5 text-center">
+          <p className="text-gray-300 font-mono text-4xl font-extrabold mb-5 text-center">
             Overview
           </p>
-          <p className="text-gray-200 font-mono text-sm mb-4 text-wrap mx-4">
-            The Sorting Algorithm Visualizer is a web application built with
-            React and Tailwind CSS to help users understand and visualize
-            various sorting algorithms.
+          <p className="text-gray-200 font-mono text-2xl font-bold mb-4 text-wrap mx-4">
+            Welcome to our Sorting Algorithm Visualizer! This interactive tool
+            demonstrates the inner workings of some of the most popular sorting
+            algorithms, including:
           </p>
 
-          <p className="text-gray-300 font-mono text-3xl mb-4">Features</p>
-          <ul className="list-disc list-inside space-y-2 text-gray-200 font-mono mx-8">
+          <ul className="list-disc list-inside space-y-2 text-gray-200 font-mono mx-8 mb-4">
             <li>Selection Sort</li>
             <li>Insertion Sort</li>
             <li>Heap Sort</li>
@@ -36,6 +35,28 @@ const Home = () => {
             <li>Merge Sort</li>
             <li>Quick Sort</li>
           </ul>
+          <p className="text-gray-200 font-mono text-2xl font-bold mb-4 text-wrap mx-4">
+            Explore how each algorithm processes data, step-by-step, through
+            dynamic visualizations that bring sorting to life.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-gray-200 font-mono mx-8 mb-6">
+            <li>User-friendly interface to select and compare algorithms.</li>
+            <li>Adjustable input sizes and sorting speeds.</li>
+            <li>
+              Clear, real-time visual representations of each sorting step.
+            </li>
+          </ul>
+          <a
+            href="https://github.com/yamhokim/Sorting-Algorithm-Website"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-2xl">
+                Github Repository
+              </span>
+            </button>
+          </a>
         </div>
 
         {/* Project Members Title */}
