@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { handleSortingAlgorithm } from "../utils/sortingAlgorithms";
 import * as FaIcons from "react-icons/fa";
 import { FaShuffle } from "react-icons/fa6";
@@ -34,9 +34,9 @@ function ArrayBar({
   const [currentIndex, setCurrentIndex] = useState<number[]>([]);
   const [maxIndices, setMaxIndices] = useState<number[]>([]);
   const [barWidth, setBarWidth] = useState<number>(10);
-  // Example speed factor (you could pass this in as a prop or from a context)
-  // 1 means normal speed, 3 means 3x faster, etc.
-  const speedFactor = speedValue; // or 2 or 3, etc.
+  const [divWidth, setDivWidth] = useState(0);
+
+  const speedFactor = speedValue;
 
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAmountValue(Number(event.target.value));
@@ -46,23 +46,27 @@ function ArrayBar({
     setSpeedValue(Number(event.target.value));
   };
 
+  const divRef = useRef(null);
+
   useEffect(() => {
-    // This 600 is currently our container width, we will change this once we figure out our actual container width
+    if (divRef.current) {
+      const width = divRef.current.getBoundingClientRect().width;
+      setDivWidth(width);
+    }
+  }, []);
+
+  useEffect(() => {
     const newBarWidth = Math.max(2, 500 / amountValue);
     setBarWidth(newBarWidth);
   }, [amountValue]);
 
-  // We’ll use a base duration for each animation step (in ms).
-  // At speedFactor=1, stepDuration = 500ms. At speedFactor=2, stepDuration = 250ms, etc.
   const baseStepDuration = 500;
   const stepDuration = baseStepDuration / speedFactor;
 
   useEffect(() => {
-    // Create the initial array [1..amountValue]
     const initialArray = Array.from({ length: amountValue }, (_, i) => i + 1);
     setNumArray(initialArray);
 
-    // (Optional) Shuffle after a short delay
     const timer = setTimeout(() => {
       const shuffledArray = shuffleArray([...initialArray]);
       setNumArray(shuffledArray);
@@ -73,7 +77,10 @@ function ArrayBar({
 
   return (
     <>
-      <div className="bg-[#0A2747] w-5/6 h-[400px] flex items-end justify-center mt-11 mb-4 rounded-3xl shadow-inner-lg overflow-hidden">
+      <div
+        ref={divRef}
+        className="bg-[#0A2747] w-5/6 h-[500px] flex items-end justify-center mt-11 mb-4 rounded-3xl shadow-inner-lg overflow-hidden"
+      >
         {numarray.map((heightnum, index) => {
           let barColor = "bg-blue-500";
 
@@ -95,8 +102,10 @@ function ArrayBar({
               key={index}
               className={`border-1 ml-1 rounded-t-sm shadow-inner order-blue-900 transition-all duration-100 ${barColor}`}
               style={{
-                height: `${heightnum * 3}px`,
-                width: `${barWidth}px`,
+                height: `${(320 / numarray.length) * heightnum}px`,
+                width: `${
+                  (divWidth * 0.85 - 4 * numarray.length) / numarray.length
+                }px`,
               }}
             ></div>
           );
