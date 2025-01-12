@@ -36,7 +36,7 @@ function SideBar() {
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
                     {item.icon}
-                    <span>{item.title}</span>
+                    <span style={{ marginLeft: "16px" }}>{item.title}</span>
                   </Link>
                 </li>
               );
@@ -48,7 +48,7 @@ function SideBar() {
                 rel="noopener noreferrer"
               >
                 <IoEarth />
-                <span>Project Link</span>
+                <span style={{ marginLeft: "16px" }}>Project Link</span>
               </a>
             </li>
           </ul>

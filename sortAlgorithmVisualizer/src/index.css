@@ -128,7 +128,7 @@ html {
 }
 
 .nav-text a:hover {
-  background-color: #1a83ff;
+  background-color: #1d4ed8;
 }
 
 .nav-menu-items {
@@ -142,8 +142,4 @@ html {
   display: flex;
   justify-content: start;
   align-items: center;
-}
-
-span {
-  margin-left: 16px;
 }
