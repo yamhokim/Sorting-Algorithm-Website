@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { ArrayBarProps } from "../types/ArrayBarTypes";
 import { handleSortingAlgorithm } from "../utils/sortingAlgorithms";
 import * as FaIcons from "react-icons/fa";
 import { FaShuffle } from "react-icons/fa6";
@@ -11,14 +12,6 @@ function shuffleArray<T>(array: T[]): T[] {
   }
   return array;
 }
-
-type ArrayBarProps = {
-  name: string;
-  amountValue: number;
-  setAmountValue: (num: number) => void;
-  speedValue: number;
-  setSpeedValue: (num: number) => void;
-};
 
 function ArrayBar({
   name,

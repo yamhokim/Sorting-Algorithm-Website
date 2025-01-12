@@ -1,11 +1,6 @@
 import "../index.css";
-import { ComplexityProps } from "../types/ComplexityTypes";
+import { TextBoxProps } from "../types/TextBoxTypes";
 import FlipCard from "./flipCard";
-
-interface TextBoxProps {
-  text: string;
-  complexities: ComplexityProps;
-}
 
 function formatText(text: string) {
   const formattedText = text.replace(/\n/g, "<br />");

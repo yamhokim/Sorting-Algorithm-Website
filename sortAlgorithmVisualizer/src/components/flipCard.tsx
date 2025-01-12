@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
-import { ComplexityProps } from "../types/ComplexityTypes";
+import { FlipCardProps } from "../types/FlipCardTypes";
 import "../index.css";
-
-interface FlipCardProps {
-  complexities: ComplexityProps;
-}
 
 const FlipCard = ({ complexities }: FlipCardProps) => {
   const [flipped, setFlipped] = useState(false);

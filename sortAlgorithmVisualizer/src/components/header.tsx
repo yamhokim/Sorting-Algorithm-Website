@@ -1,8 +1,5 @@
 import "../index.css";
-
-type HeaderProp = {
-  title: string;
-};
+import { HeaderProp } from "../types/HeaderTypes";
 
 function Header({ title }: HeaderProp) {
   return (

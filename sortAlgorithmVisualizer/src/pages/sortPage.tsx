@@ -3,18 +3,10 @@ import Header from "../components/header";
 import ArrayBar from "../components/arrayBar";
 import TextBox from "../components/textBox";
 import TabsComponent from "../components/Tabs/TabsComponent";
-import { SortCodeProps } from "../types/SortCodeTypes";
-import { ComplexityProps } from "../types/ComplexityTypes";
+import { SortPageProp } from "../types/SortCodeTypes";
 import React, { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
-
-type SortPageProp = {
-  name: string;
-  code: SortCodeProps;
-  text: string;
-  complexities: ComplexityProps;
-};
 
 const SortPage: React.FC<SortPageProp> = ({
   name,
@@ -43,7 +35,7 @@ const SortPage: React.FC<SortPageProp> = ({
 
   return (
     <>
-      <div className="w-full bg-gray-900">
+      <div className="w-full h-full bg-gray-900">
         <div className="w-full h-[40%] bg-gray-900">
           <div className="w-full h-full flex flex-col bg-gray-900 items-center shadow-inner">
             <Header title={name.toUpperCase()} />
