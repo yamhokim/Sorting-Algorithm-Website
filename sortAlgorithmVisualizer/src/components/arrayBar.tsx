@@ -27,8 +27,11 @@ function ArrayBar({
   const [currentIndex, setCurrentIndex] = useState<number[]>([]);
   const [maxIndices, setMaxIndices] = useState<number[]>([]);
   const [divWidth, setDivWidth] = useState(0);
+  const [isSorting, setIsSorting] = useState(false);
 
   const speedFactor = speedValue;
+  const baseStepDuration = 500;
+  const stepDuration = baseStepDuration / speedFactor;
 
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAmountValue(Number(event.target.value));
@@ -36,6 +39,25 @@ function ArrayBar({
 
   const handleSpeedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSpeedValue(Number(event.target.value));
+  };
+
+  const handleSortToggle = () => {
+    if (isSorting) {
+      setIsSorting(false);
+    } else {
+      handleSortingAlgorithm(
+        name,
+        numarray,
+        setNumArray,
+        setActiveIndices,
+        setSwappedIndices,
+        stepDuration,
+        setMinimumIndex,
+        setCurrentIndex,
+        setMaxIndices
+      );
+      setIsSorting(true);
+    }
   };
 
   const divRef = useRef<HTMLDivElement>(null);
@@ -46,9 +68,6 @@ function ArrayBar({
       setDivWidth(width);
     }
   }, []);
-
-  const baseStepDuration = 500;
-  const stepDuration = baseStepDuration / speedFactor;
 
   useEffect(() => {
     const initialArray = Array.from({ length: amountValue }, (_, i) => i + 1);
@@ -114,30 +133,25 @@ function ArrayBar({
             min="10"
             max="60"
             step="1"
-            className="w-10/12 h-2 bg-blue-400 rounded-lg appearance-none cursos-pointer dark:bg-gray-70 shadow-inner ring-blue-700 py-1 mb-3"
+            className={`w-10/12 h-2 bg-blue-400 rounded-lg appearance-none cursos-pointer dark:bg-gray-70 shadow-inner ring-blue-700 py-1 mb-3 ${
+              isSorting ? "bg-gray-500 cursor-not-allowed" : ""
+            }`}
             onChange={handleAmountChange}
+            disabled={isSorting}
           ></input>
         </div>
         <button
           className="text-white font-semibold bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center"
-          onClick={() =>
-            handleSortingAlgorithm(
-              name,
-              numarray,
-              setNumArray,
-              setActiveIndices,
-              setSwappedIndices,
-              stepDuration,
-              setMinimumIndex,
-              setCurrentIndex,
-              setMaxIndices
-            )
-          }
+          onClick={handleSortToggle}
         >
-          <FaIcons.FaPlay />
+          {isSorting ? <FaIcons.FaStop /> : <FaIcons.FaPlay />}
         </button>
         <button
-          className="text-white font-semibold bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl px-5 py-2.5 text-center"
+          className={`text-white font-semibold font-medium rounded-lg text-xl px-5 py-2.5 text-center ${
+            isSorting
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+          }`}
           onClick={() =>
             handleSortingAlgorithm(
               name,
@@ -151,6 +165,7 @@ function ArrayBar({
               setMaxIndices
             )
           }
+          disabled={isSorting}
         >
           <FaShuffle />
         </button>
@@ -168,8 +183,11 @@ function ArrayBar({
             min="1"
             max="10"
             step="1"
-            className="w-10/12 h-2  bg-blue-400 rounded-lg appearance-none cursos-pointer dark:bg-gray-70 shadow-inner ring-blue-700 mb-3"
+            className={`w-10/12 h-2  bg-blue-400 rounded-lg appearance-none cursos-pointer dark:bg-gray-70 shadow-inner ring-blue-700 mb-3 ${
+              isSorting ? "bg-gray-500 cursor-not-allowed" : ""
+            }`}
             onChange={handleSpeedChange}
+            disabled={isSorting}
           ></input>
         </div>
       </div>
