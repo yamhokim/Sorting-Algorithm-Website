@@ -1,22 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import c_icon from "../../assets/images/c_icon.png";
-import python_icon from "../../assets/images/python_icon.png";
-import cpp_icon from "../../assets/images/cpp_icon.png";
-import javascript_icon from "../../assets/images/javascript_icon.png";
-import java_icon from "../../assets/images/java_icon.png";
+import { useState, useRef } from "react";
+import { TabsComponentProps, iconMap } from "../../types/TabsComponentTypes";
 import "../../index.css";
 
-const TabsComponent = ({ items }) => {
+const TabsComponent: React.FC<TabsComponentProps> = ({ items }) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const firstBtnRef = useRef();
-
-  const iconMap = {
-    Python: python_icon,
-    CPP: cpp_icon,
-    C: c_icon,
-    JavaScript: javascript_icon,
-    Java: java_icon,
-  };
+  const firstBtnRef = useRef<HTMLButtonElement | null>(null);
 
   return (
     <>

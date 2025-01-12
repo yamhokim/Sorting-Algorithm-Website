@@ -16,7 +16,7 @@ export function quickSort(
   setActiveIndices: React.Dispatch<React.SetStateAction<number[]>>,
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
   stepDuration: number,
-  timeoutRefs: ReturnType<typeof setTimeout>[]
+  timeoutRefs: any
 ): void {
   const animations: {
     type: "compare" | "swap";

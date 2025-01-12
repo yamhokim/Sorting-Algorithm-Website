@@ -69,7 +69,7 @@ export function heapSort(
   setSwappedIndices: React.Dispatch<React.SetStateAction<number[]>>,
   stepDuration: number,
   setMaxIndices: React.Dispatch<React.SetStateAction<number[]>>,
-  timeoutRefs: ReturnType<typeof setTimeout>[]
+  timeoutRefs: any
 ): void {
   const arr = [...numarray];
 

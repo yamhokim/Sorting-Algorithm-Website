@@ -17,7 +17,7 @@ const SortPage: React.FC<SortPageProp> = ({
   const [amountValue, setAmountValue] = useState<number>(10);
   const [speedValue, setSpeedValue] = useState<number | number>(1);
 
-  const items = Object.entries(code).map(([title, snippet]) => ({
+  const items: any = Object.entries(code).map(([title, snippet]) => ({
     title,
     content: (
       <div>

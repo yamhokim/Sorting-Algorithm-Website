@@ -9,7 +9,7 @@ export function selectionSort(
   stepDuration: number,
   setMinimumIndex: React.Dispatch<React.SetStateAction<number[]>>,
   setCurrentIndex: React.Dispatch<React.SetStateAction<number[]>>,
-  timeoutRefs: ReturnType<typeof setTimeout>[]
+  timeoutRefs: any
 ): void {
   const animations: {
     type: "current" | "swap" | "minimum" | "active";
