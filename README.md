@@ -2,7 +2,7 @@
 
 ## Demo
 
-[Link to Demo](https://sort-gallery.netlify.app/)
+Click [this](https://sort-gallery.netlify.app/) to see a demo of the project.
 
 ## Overview
 
